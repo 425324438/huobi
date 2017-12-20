@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class MyBean {
+    @Autowired
     private StringRedisTemplate template;
 
-    @Autowired
     public MyBean(StringRedisTemplate template) {
         this.template = template;
     }
