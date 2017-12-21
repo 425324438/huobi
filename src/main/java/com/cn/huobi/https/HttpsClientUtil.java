@@ -1,5 +1,7 @@
 package com.cn.huobi.https;
 
+import com.cn.huobi.util.HMACUtil;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.http.HttpEntity;
@@ -14,10 +16,11 @@ import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.Map.Entry;
 
 /**
@@ -38,7 +41,9 @@ public class HttpsClientUtil {
     private String SignatureMethod;
     @Value("${huobi.SignatureVersion}")
     private String SignatureVersion;
-
+    @Value("${huobi.Secret}")
+    private String Secret;
+    private static DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss") ;
     private String charset = "utf-8";
 
 
@@ -102,7 +107,7 @@ public class HttpsClientUtil {
             }  
         }catch(Exception ex){  
             ex.printStackTrace();  
-        }  
+        }
         return result;  
     }
 
@@ -110,7 +115,22 @@ public class HttpsClientUtil {
         httpGet.addHeader("Content-Type", "application/json");
         httpGet.addHeader("Accept-Language", "zh-cn");
         httpGet.addHeader("user agent", "User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36");
-
+        String security= "";
+        security += "GET\napi.huobi.pro\n"+url+"\n";
+        Map<String,String> paraMap = new HashMap<String,String>();
+        paraMap.put("AccessKeyId",AccessKeyId);
+        paraMap.put("SignatureMethod",SignatureMethod);
+        paraMap.put("SignatureVersion",SignatureVersion);
+        paraMap.put("Timestamp",format.format(new Date()));
+        String str = HMACUtil.formatUrlMap(paraMap,true,false);
+        security = security + str;
+        String mima = HMACUtil.encrytSHA256(security,Secret);
+        String base64 = new sun.misc.BASE64Encoder().encode(mima.getBytes());
+        try {
+            URLEncoder.encode(base64,"UTF-8");
+        }catch(UnsupportedEncodingException e){
+            e.getMessage();
+        }
 
     }
 }
