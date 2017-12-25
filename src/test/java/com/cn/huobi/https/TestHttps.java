@@ -33,6 +33,9 @@ public class TestHttps {
         System.out.println("result:"+httpOrgCreateTestRtn);
     }
 
+    /**
+     * 获取K线
+     */
     @Test
     public void  testGet(){
         Map<String,String> createMap = new HashMap<String,String>();
@@ -43,12 +46,23 @@ public class TestHttps {
         System.out.println("result:"+httpOrgCreateTestRtn);
     }
 
+    /**
+     * 获取行情
+     */
+    @Test
+    public void  testMerged (){
+        Map<String,String> createMap = new HashMap<String,String>();
+        createMap.put("symbol","xrpusdt");
+        String httpOrgCreateTestRtn = httpsClientUtil.doGet("https://api.huobi.pro/market/detail/merged",createMap,charset);
+        System.out.println("result:"+httpOrgCreateTestRtn);
+    }
+
+    /**
+     * 查询系统支持的所有交易对及精度
+     */
     @Test
     public void  testsymbols(){
         Map<String,String> createMap = new HashMap<String,String>();
-//        createMap.put("base-currency","xrp");
-//        createMap.put("quote-currency","usdt");
-//        createMap.put("symbol-partition","main");
         String httpOrgCreateTestRtn = httpsClientUtil.doGet("https://api.huobi.pro/v1/common/symbols",createMap,charset);
         System.out.println("result:"+httpOrgCreateTestRtn);
     }
