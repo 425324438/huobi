@@ -84,10 +84,7 @@ public class HttpsClientUtil {
 	public String doGet(String url,Map<String,String> map,String charset){
         HttpClient httpClient = null; 
         HttpGet httpGet = null;
-        String result = null;  
-        try{  
-            httpClient = new SslClient();
-            httpGet = new HttpGet(url);
+        String result = null;
             //设置参数
             StringBuilder buf = new StringBuilder();
             for (Map.Entry<String, String> item : map.entrySet()){
@@ -100,8 +97,11 @@ public class HttpsClientUtil {
                 }
             }
             if (!buf.equals("")){
-               url += "?"+buf;
+                url += "?"+buf;
             }
+        try{  
+            httpClient = new SslClient();
+            httpGet = new HttpGet(url);
             signature(httpGet, url);
             System.out.print("---火币网API----URL----------"+url+"\n");
             HttpResponse response = httpClient.execute(httpGet);
@@ -119,27 +119,11 @@ public class HttpsClientUtil {
         return result;  
     }
 
-    /**
-     * 构造URL 键值对的格式
-     */
-    private void  parameterUrl(String url,Map<String,String> map){
-        //设置参数
-        StringBuilder buf = new StringBuilder();
-        for (Map.Entry<String, String> item : map.entrySet()){
-            if (StringUtils.isNotBlank(item.getKey()))
-            {
-                String key = item.getKey();
-                String val = item.getValue();
-                 buf.append(key + "=" + val);
-                buf.append("&");
-            }
-        }
-        url += "?"+buf;
-    }
+
     private void signature(HttpGet httpGet ,String url){
         httpGet.addHeader("Content-Type", "application/json");
         httpGet.addHeader("Accept-Language", "zh-cn");
-        httpGet.addHeader("user agent", "User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36");
+        httpGet.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36");
         String security= "";
         security += "GET\napi.huobi.pro\n"+url+"\n";
         Map<String,String> paraMap = new HashMap<String,String>();
