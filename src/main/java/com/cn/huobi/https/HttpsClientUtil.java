@@ -88,21 +88,29 @@ public class HttpsClientUtil {
         try{  
             httpClient = new SslClient();
             httpGet = new HttpGet(url);
-
-            //设置参数  
-            List<NameValuePair> list = new ArrayList<NameValuePair>();
-            Iterator iterator = map.entrySet().iterator();  
-            while(iterator.hasNext()){  
-                Entry<String,String> elem = (Entry<String, String>) iterator.next();  
-                list.add(new BasicNameValuePair(elem.getKey(),elem.getValue()));
+            //设置参数
+            StringBuilder buf = new StringBuilder();
+            for (Map.Entry<String, String> item : map.entrySet()){
+                if (StringUtils.isNotBlank(item.getKey()))
+                {
+                    String key = item.getKey();
+                    String val = item.getValue();
+                    buf.append(key + "=" + val);
+                    buf.append("&");
+                }
+            }
+            if (!buf.equals("")){
+               url += "?"+buf;
             }
             signature(httpGet, url);
+            System.out.print("---火币网API----URL----------"+url+"\n");
             HttpResponse response = httpClient.execute(httpGet);
-            if(response != null){  
+            if(response != null){
                 HttpEntity resEntity = response.getEntity();
                 if(resEntity != null){  
                     result = EntityUtils.toString(resEntity,charset);
-                    log.debug("---火币网API----返回参数----------"+result);
+                    log.debug("---火币网API----返回参数----------"+result+"\n");
+                    System.out.print("---火币网API----返回参数----------"+result+"\n");
                 }  
             }  
         }catch(Exception ex){  
@@ -111,6 +119,23 @@ public class HttpsClientUtil {
         return result;  
     }
 
+    /**
+     * 构造URL 键值对的格式
+     */
+    private void  parameterUrl(String url,Map<String,String> map){
+        //设置参数
+        StringBuilder buf = new StringBuilder();
+        for (Map.Entry<String, String> item : map.entrySet()){
+            if (StringUtils.isNotBlank(item.getKey()))
+            {
+                String key = item.getKey();
+                String val = item.getValue();
+                 buf.append(key + "=" + val);
+                buf.append("&");
+            }
+        }
+        url += "?"+buf;
+    }
     private void signature(HttpGet httpGet ,String url){
         httpGet.addHeader("Content-Type", "application/json");
         httpGet.addHeader("Accept-Language", "zh-cn");
@@ -124,7 +149,7 @@ public class HttpsClientUtil {
         paraMap.put("Timestamp",format.format(new Date()));
         String str = HMACUtil.formatUrlMap(paraMap,true,false);
         security = security + str;
-        String mima = HMACUtil.encrytSHA256(security,Secret);
+        String mima = HMACUtil.encrytSHA256(security,"197b7634-8887df09-d41c81bb-72e5a");
         String base64 = new sun.misc.BASE64Encoder().encode(mima.getBytes());
         try {
             URLEncoder.encode(base64,"UTF-8");

@@ -36,7 +36,20 @@ public class TestHttps {
     @Test
     public void  testGet(){
         Map<String,String> createMap = new HashMap<String,String>();
-        String httpOrgCreateTestRtn = httpsClientUtil.doGet(market,createMap,charset);
+        createMap.put("symbol","rcneth");
+        createMap.put("period","1min");
+        createMap.put("size","200");
+        String httpOrgCreateTestRtn = httpsClientUtil.doGet("https://api.huobi.pro/market/history/kline",createMap,charset);
+        System.out.println("result:"+httpOrgCreateTestRtn);
+    }
+
+    @Test
+    public void  testsymbols(){
+        Map<String,String> createMap = new HashMap<String,String>();
+//        createMap.put("symbol","rcneth");
+//        createMap.put("period","1min");
+//        createMap.put("size","200");
+        String httpOrgCreateTestRtn = httpsClientUtil.doGet("https://api.huobi.pro/v1/common/symbols",createMap,charset);
         System.out.println("result:"+httpOrgCreateTestRtn);
     }
 
