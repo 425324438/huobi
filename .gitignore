@@ -22,3 +22,6 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
+### 不上传资源配置文件  ###
+src/main/resources/application.properties
