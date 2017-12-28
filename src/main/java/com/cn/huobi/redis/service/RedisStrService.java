@@ -8,6 +8,6 @@ public interface RedisStrService {
     /********************** Syting 操作****************************/
     Object getKey(String key);
 
-    void setKey(String key, String val);
+    void setKey(String key, Object val);
 
 }

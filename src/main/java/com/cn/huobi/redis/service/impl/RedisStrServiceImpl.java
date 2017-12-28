@@ -34,7 +34,7 @@ public class RedisStrServiceImpl implements RedisStrService {
     }
 
     @Override
-    public void setKey(String key, String val) {
-        template.opsForSet().add(key,val);
+    public void setKey(String key, Object val) {
+        template.opsForValue().set(key,val);
     }
 }

@@ -1,6 +1,7 @@
 package com.cn.huobi.job;
 
 import com.cn.huobi.https.HttpsClientUtil;
+import com.cn.huobi.redis.service.RedisStrService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
@@ -28,7 +29,6 @@ import java.util.Map;
 @EnableScheduling // 启用定时任务
 public class SchedledConfiguration  {
     private static final Logger log = LoggerFactory.getLogger(SchedledConfiguration.class);
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
     @Value("${huobi.market}")
     private String market ;
@@ -37,6 +37,8 @@ public class SchedledConfiguration  {
     private String charset = "utf-8";
     @Autowired
     private HttpsClientUtil httpsClientUtil;
+    @Autowired
+    private RedisStrService redisStrService;
 
     /**
           "data": [
@@ -55,6 +57,7 @@ public class SchedledConfiguration  {
 //    @Scheduled(fixedRate = 1000 * 60 * 10)
     @Scheduled(fixedRate = 1000 )
     public void job(){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         log.info("定时任务执行了：1秒 钟执行一次的 The time is now {}", dateFormat.format(new Date()));
         Map<String,String> createMap = new HashMap<String,String>();
         createMap.put("symbol","xrpusdt");
@@ -70,6 +73,11 @@ public class SchedledConfiguration  {
                     JSONObject dataJson = data.getJSONObject(i);
                     String close = dataJson.getString("close");//收盘价：当前价格
                     log.info("当前价格：xrpusdt = "+close);
+                    JSONObject dateJson = new JSONObject();
+                        dateJson.put("xrpusdt",close);
+                        dateJson.put("dataTime",String.valueOf(dateFormat.format(new Date())));
+                    redisStrService.setKey("xrpusdt",String.valueOf(dateJson));
+                    break;
                 }
             }
         }
