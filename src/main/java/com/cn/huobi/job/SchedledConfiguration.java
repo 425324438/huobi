@@ -2,6 +2,7 @@ package com.cn.huobi.job;
 
 import com.cn.huobi.https.HttpsClientUtil;
 import com.cn.huobi.redis.service.RedisStrService;
+import com.cn.huobi.util.DateUtil;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
@@ -73,10 +74,19 @@ public class SchedledConfiguration  {
                     JSONObject dataJson = data.getJSONObject(i);
                     String close = dataJson.getString("close");//收盘价：当前价格
                     log.info("当前价格：xrpusdt = "+close);
-                    JSONObject dateJson = new JSONObject();
-                        dateJson.put("xrpusdt",close);
-                        dateJson.put("dataTime",String.valueOf(dateFormat.format(new Date())));
-                    redisStrService.setKey("xrpusdt",String.valueOf(dateJson));
+                    JSONObject redis = (JSONObject) redisStrService.getKey("xrpusdt");
+
+                    //上次保留的时间 减去当前时间
+                    JSONObject dateJson = DateUtil.dateDiffer
+                            (redis.getString("dataTime"),dateFormat.format(new Date()));
+                    if(dateJson!= null && dateJson.has("min")){
+
+                    }
+                    JSONObject redisJson = new JSONObject();
+                        redisJson.put("xrpusdt",close);
+                        redisJson.put("dataTime",dateFormat.format(new Date()));
+                    redisStrService.setKey("xrpusdt",String.valueOf(redisJson));
+
                     break;
                 }
             }
