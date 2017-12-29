@@ -37,7 +37,7 @@ public class RedisListServiceImpl implements RedisListService {
 
     @Override
     public void listSet(String key, Object obj) {
-        template.opsForList().set(key,1,obj);
+        template.opsForList().leftPush(key, obj);
     }
     /**
      * @param var1:  key
