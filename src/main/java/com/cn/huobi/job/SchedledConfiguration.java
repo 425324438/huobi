@@ -127,12 +127,10 @@ public class SchedledConfiguration  {
                     emailSend.sendMail("2037520355@qq.com",subject,subject);
                     /**
                      *  30分钟的Obj监控
-                     *  [
-                            {
+                     *  {
                              "dataTime": "2017-12-29 04:35:32",
                              "xrpusdt": "1.1277"
-                             }
-                        ]
+                        }
                      */
                     JSONObject huobi = new JSONObject();
                         huobi.put("xrpusdt",close);
