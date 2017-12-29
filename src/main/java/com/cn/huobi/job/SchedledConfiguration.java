@@ -16,6 +16,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -64,6 +65,7 @@ public class SchedledConfiguration  {
     @Scheduled(fixedRate = 1000 * 5 )
     public void job(){
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        DecimalFormat df = new DecimalFormat("######0.00");
         log.info("定时任务执行了：1秒 钟执行一次的 The time is now {}", dateFormat.format(new Date()));
         Map<String,String> createMap = new HashMap<String,String>();
         createMap.put("symbol","xrpusdt");
@@ -88,31 +90,31 @@ public class SchedledConfiguration  {
                             (dateFormat.format(new Date()),redis.getString("dataTime"));
                     if(dateJson!= null && dateJson.has("min")){
                         Long min = dateJson.getLong("min");
-//                        if(min == 10){
+//                        if(min > 10){
                             String upClose = redis.getString("xrpusdt");
                             //涨幅 = （之前价格 -  当前价格 ） /  当前价格 ，
                             //当前价格
                             Double dClose =  Double.parseDouble(close);
                             //之前价格
                             Double dupClose =  Double.parseDouble(upClose);
-//                            Double rose  = ( dupClose - dClose) / dupClose;
                             Double rose  = ( dClose - dupClose) / dClose;
+                            String strRose = df.format(rose);
                             String msg = "";
                             if(dupClose < dClose){
                                 msg = "上涨";
                             }else{
                                 msg = "下跌";
                             }
-                            log.info("xrpusdt ：10分钟内波动较大，"+"波动比例 = "+msg+"："+rose+"%"+" -- 当前价格为 "+close+"之前价格为:"+dupClose);
-                            String subject = "xrpusdt ：10分钟内波动较大，"+"波动比例 = "+msg+"："+rose+"%"+" -- 当前价格为 "+close+"之前价格为:"+dupClose;
+                            log.info("xrpusdt ：10分钟内波动较大，"+"波动比例 = "+msg+"："+strRose+"%"+" -- 当前价格为 "+close+"，之前价格为:"+dupClose);
+                            String subject = "xrpusdt ：10分钟内波动较大，"+"波动比例 = "+msg+"："+strRose+"%"+" -- 当前价格为 "+close+"，之前价格为:"+dupClose;
                             emailSend.sendMail("2037520355@qq.com",subject,subject);
+
+                            JSONObject redisJson = new JSONObject();
+                            redisJson.put("xrpusdt",close);
+                            redisJson.put("dataTime",dateFormat.format(new Date()));
+                            redisStrService.setKey("xrpusdt",String.valueOf(redisJson));
 //                        }
                     }
-                    JSONObject redisJson = new JSONObject();
-                        redisJson.put("xrpusdt",close);
-                        redisJson.put("dataTime",dateFormat.format(new Date()));
-                    redisStrService.setKey("xrpusdt",String.valueOf(redisJson));
-
                     break;
                 }
             }
