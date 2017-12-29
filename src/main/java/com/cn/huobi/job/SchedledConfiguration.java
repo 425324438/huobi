@@ -84,7 +84,6 @@ public class SchedledConfiguration  {
                     log.info("当前价格：xrpusdt = "+close);
                     //取出上次预留价格
                     JSONObject redis =  JSONObject.fromObject(redisStrService.getKey("xrpusdt"));
-
                     //当前时间 - 上次保留时间 == 10 分钟
                     JSONObject dateJson = DateUtil.dateDiffer
                             (dateFormat.format(new Date()),redis.getString("dataTime"));
