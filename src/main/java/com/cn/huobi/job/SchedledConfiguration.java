@@ -1,5 +1,6 @@
 package com.cn.huobi.job;
 
+import com.cn.huobi.email.EmailSend;
 import com.cn.huobi.https.HttpsClientUtil;
 import com.cn.huobi.redis.service.RedisStrService;
 import com.cn.huobi.util.DateUtil;
@@ -24,6 +25,8 @@ import java.util.Map;
  * @author  liaoliping
  * date：2017/12/27
  * time：22:34
+ *
+ * 我给你个阈值，5分钟2%，半小时10%   一天30%
  */
 @Component
 @Configuration
@@ -40,6 +43,8 @@ public class SchedledConfiguration  {
     private HttpsClientUtil httpsClientUtil;
     @Autowired
     private RedisStrService redisStrService;
+    @Autowired
+    private EmailSend emailSend;
 
     /**
           "data": [
@@ -56,7 +61,7 @@ public class SchedledConfiguration  {
           ]
      */
 //    @Scheduled(fixedRate = 1000 * 60 * 10)
-    @Scheduled(fixedRate = 1000 )
+    @Scheduled(fixedRate = 1000 * 5 )
     public void job(){
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         log.info("定时任务执行了：1秒 钟执行一次的 The time is now {}", dateFormat.format(new Date()));
@@ -83,22 +88,25 @@ public class SchedledConfiguration  {
                             (dateFormat.format(new Date()),redis.getString("dataTime"));
                     if(dateJson!= null && dateJson.has("min")){
                         Long min = dateJson.getLong("min");
-                        if(min == 10){
+//                        if(min == 10){
                             String upClose = redis.getString("xrpusdt");
-                            //涨幅 = （ 当前价格 - 之前价格 ） / 之前价格 ，
+                            //涨幅 = （之前价格 -  当前价格 ） /  当前价格 ，
                             //当前价格
                             Double dClose =  Double.parseDouble(close);
                             //之前价格
                             Double dupClose =  Double.parseDouble(upClose);
-                            Double rose  = ( dupClose - dClose) / dupClose;
+//                            Double rose  = ( dupClose - dClose) / dupClose;
+                            Double rose  = ( dClose - dupClose) / dClose;
                             String msg = "";
                             if(dupClose < dClose){
                                 msg = "上涨";
                             }else{
                                 msg = "下跌";
                             }
-                            log.info("xrpusdt ：10分钟内波动较大，之前价格为:"+dupClose+" -- 当前价格为 "+close+"波动比例 = "+msg+"："+rose+"%");
-                        }
+                            log.info("xrpusdt ：10分钟内波动较大，"+"波动比例 = "+msg+"："+rose+"%"+" -- 当前价格为 "+close+"之前价格为:"+dupClose);
+                            String subject = "xrpusdt ：10分钟内波动较大，"+"波动比例 = "+msg+"："+rose+"%"+" -- 当前价格为 "+close+"之前价格为:"+dupClose;
+                            emailSend.sendMail("2037520355@qq.com",subject,subject);
+//                        }
                     }
                     JSONObject redisJson = new JSONObject();
                         redisJson.put("xrpusdt",close);

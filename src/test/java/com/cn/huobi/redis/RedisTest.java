@@ -31,9 +31,9 @@ public class RedisTest {
     }
 
     public static void main(String[] args) {
-        //涨幅= （ 当前价格 - 之前价格 ） / 之前价格 ，
-        Double up = 9.0;  //当前
-        Double clo = 10.0; //之前
+        //涨幅 = （之前价格 -  当前价格 ） /  当前价格 ，
+        Double up = 1.3406;  //当前
+        Double clo = 1.3405; //之前
         Double rose  =    (clo - up) / clo;
         String msg  ="";
         if(clo < up){
