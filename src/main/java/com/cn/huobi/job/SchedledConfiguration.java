@@ -2,6 +2,7 @@ package com.cn.huobi.job;
 
 import com.cn.huobi.email.EmailSend;
 import com.cn.huobi.https.HttpsClientUtil;
+import com.cn.huobi.redis.service.RedisListService;
 import com.cn.huobi.redis.service.RedisStrService;
 import com.cn.huobi.util.DateUtil;
 import net.sf.json.JSONArray;
@@ -46,6 +47,8 @@ public class SchedledConfiguration  {
     @Autowired
     private RedisStrService redisStrService;
     @Autowired
+    private RedisListService redisListService;
+    @Autowired
     private EmailSend emailSend;
 
     /**
@@ -81,8 +84,6 @@ public class SchedledConfiguration  {
                 for(int i=0;i < data.size();i++){
                     JSONObject dataJson = data.getJSONObject(i);
                     mins5(dataJson);
-
-
                     break;
                 }
             }
@@ -133,7 +134,10 @@ public class SchedledConfiguration  {
                              }
                         ]
                      */
-                    redisStrService.setKey("monitor_30","close" );
+                    JSONObject huobi = new JSONObject();
+                        huobi.put("xrpusdt",close);
+                        huobi.put("dataTime",dateFormat.format(new Date()));
+                    redisListService.listSet("monitor_30",String.valueOf(huobi));
                 }
                 JSONObject redisJson = new JSONObject();
                 redisJson.put("xrpusdt",close);
