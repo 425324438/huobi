@@ -30,5 +30,17 @@ public class RedisTest {
         template.opsForValue().get("username");
     }
 
-
+    public static void main(String[] args) {
+        //涨幅= （ 当前价格 - 之前价格 ） / 之前价格 ，
+        Double up = 9.0;  //当前
+        Double clo = 10.0; //之前
+        Double rose  =    (clo - up) / clo;
+        String msg  ="";
+        if(clo < up){
+            msg = "上涨";
+        }else{
+            msg = "下跌";
+        }
+        System.out.print(msg+"："+rose);
+    }
 }

@@ -109,9 +109,7 @@ public class HttpsClientUtil {
                 HttpEntity resEntity = response.getEntity();
                 if(resEntity != null){  
                     result = EntityUtils.toString(resEntity,charset);
-                    log.debug("---火币网API----返回参数----------"+result+"\n");
-                    System.out.print("---火币网API----返回参数----------"+result+"\n");
-                }  
+                }
             }  
         }catch(Exception ex){  
             ex.printStackTrace();  

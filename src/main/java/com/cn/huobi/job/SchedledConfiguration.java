@@ -72,15 +72,33 @@ public class SchedledConfiguration  {
                 JSONArray data = JSONArray.fromObject(json.get("data"));
                 for(int i=0;i < data.size();i++){
                     JSONObject dataJson = data.getJSONObject(i);
-                    String close = dataJson.getString("close");//收盘价：当前价格
+                    //收盘价：当前价格
+                    String close = dataJson.getString("close");
                     log.info("当前价格：xrpusdt = "+close);
-                    JSONObject redis = (JSONObject) redisStrService.getKey("xrpusdt");
+                    //取出上次预留价格
+                    JSONObject redis =  JSONObject.fromObject(redisStrService.getKey("xrpusdt"));
 
-                    //上次保留的时间 减去当前时间
+                    //当前时间 - 上次保留时间 == 10 分钟
                     JSONObject dateJson = DateUtil.dateDiffer
-                            (redis.getString("dataTime"),dateFormat.format(new Date()));
+                            (dateFormat.format(new Date()),redis.getString("dataTime"));
                     if(dateJson!= null && dateJson.has("min")){
-
+                        Long min = dateJson.getLong("min");
+                        if(min == 10){
+                            String upClose = redis.getString("xrpusdt");
+                            //涨幅 = （ 当前价格 - 之前价格 ） / 之前价格 ，
+                            //当前价格
+                            Double dClose =  Double.parseDouble(close);
+                            //之前价格
+                            Double dupClose =  Double.parseDouble(upClose);
+                            Double rose  = ( dupClose - dClose) / dupClose;
+                            String msg = "";
+                            if(dupClose < dClose){
+                                msg = "上涨";
+                            }else{
+                                msg = "下跌";
+                            }
+                            log.info("xrpusdt ：10分钟内波动较大，之前价格为:"+dupClose+" -- 当前价格为 "+close+"波动比例 = "+msg+"："+rose+"%");
+                        }
                     }
                     JSONObject redisJson = new JSONObject();
                         redisJson.put("xrpusdt",close);
