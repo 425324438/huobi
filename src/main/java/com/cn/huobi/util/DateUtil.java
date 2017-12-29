@@ -36,7 +36,7 @@ public  class DateUtil {
             long s = (between / 1000 - day * 24 * 60 * 60 - hour * 60 * 60 - min * 60);
             long ms = (between - day * 24 * 60 * 60 * 1000 - hour * 60 * 60 * 1000
                     - min * 60 * 1000 - s * 1000);
-            System.out.println(day + "天" + hour + "小时" + min + "分" + s + "秒" + ms
+            System.out.println("相差："+day + "天" + hour + "小时" + min + "分" + s + "秒" + ms
                     + "毫秒");
             JSONObject json = new JSONObject();
             json.put("day",day);

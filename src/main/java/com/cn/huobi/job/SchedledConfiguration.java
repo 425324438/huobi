@@ -35,6 +35,7 @@ import java.util.Map;
 public class SchedledConfiguration  {
     private static final Logger log = LoggerFactory.getLogger(SchedledConfiguration.class);
 
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     @Value("${huobi.market}")
     private String market ;
     @Value("${huobi.trade}")
@@ -64,13 +65,13 @@ public class SchedledConfiguration  {
 //    @Scheduled(fixedRate = 1000 * 60 * 10)
     @Scheduled(fixedRate = 1000 * 5 )
     public void job(){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        DecimalFormat df = new DecimalFormat("######0.00");
-        log.info("定时任务执行了：1秒 钟执行一次的 The time is now {}", dateFormat.format(new Date()));
-        Map<String,String> createMap = new HashMap<String,String>();
-        createMap.put("symbol","xrpusdt");
-        createMap.put("period","1min");
-        createMap.put("size","10");
+        Map<String,String> createMap = new HashMap<String,String>(){
+            {
+                put("symbol","xrpusdt");
+                put("period","1min");
+                put("size","10");
+            }
+        };
         String httpOrgCreateTestRtn = httpsClientUtil.doGet("https://api.huobi.pro/market/history/kline",createMap,charset);
         JSONObject json =  JSONObject.fromObject(httpOrgCreateTestRtn);
         if(json.has("status")){
@@ -79,46 +80,69 @@ public class SchedledConfiguration  {
                 JSONArray data = JSONArray.fromObject(json.get("data"));
                 for(int i=0;i < data.size();i++){
                     JSONObject dataJson = data.getJSONObject(i);
-                    //收盘价：当前价格
-                    String close = dataJson.getString("close");
-                    log.info("当前价格：xrpusdt = "+close);
-                    //取出上次预留价格
-                    JSONObject redis =  JSONObject.fromObject(redisStrService.getKey("xrpusdt"));
-                    //当前时间 - 上次保留时间 == 10 分钟
-                    JSONObject dateJson = DateUtil.dateDiffer
-                            (dateFormat.format(new Date()),redis.getString("dataTime"));
-                    if(dateJson!= null && dateJson.has("min")){
-                        Long min = dateJson.getLong("min");
-//                        if(min > 10){
-                            String upClose = redis.getString("xrpusdt");
-                            //涨幅 = （之前价格 -  当前价格 ） /  当前价格 ，
-                            //当前价格
-                            Double dClose =  Double.parseDouble(close);
-                            //之前价格
-                            Double dupClose =  Double.parseDouble(upClose);
-                            Double rose  = ( dClose - dupClose) / dClose;
-                            String strRose = df.format(rose);
-                            String msg = "";
-                            if(dupClose < dClose){
-                                msg = "上涨";
-                            }else{
-                                msg = "下跌";
-                            }
-                            log.info("xrpusdt ：10分钟内波动较大，"+"波动比例 = "+msg+"："+strRose+"%"+" -- 当前价格为 "+close+"，之前价格为:"+dupClose);
-                            String subject = "xrpusdt ：10分钟内波动较大，"+"波动比例 = "+msg+"："+strRose+"%"+" -- 当前价格为 "+close+"，之前价格为:"+dupClose;
-                            emailSend.sendMail("2037520355@qq.com",subject,subject);
+                    mins5(dataJson);
 
-                            JSONObject redisJson = new JSONObject();
-                            redisJson.put("xrpusdt",close);
-                            redisJson.put("dataTime",dateFormat.format(new Date()));
-                            redisStrService.setKey("xrpusdt",String.valueOf(redisJson));
-//                        }
-                    }
+
                     break;
                 }
             }
         }
     }
+
+    /**
+     *  我给你个阈值，5分钟2%，半小时10%   一天30%
+     *
+     *  5分钟 --》 放入某个redis ，
+     *      30分钟的循环每次从这里取，如果监控到涨幅超过 10%， 放入一天  （redis key）--》
+     *          1天一次的定时器对其监控
+     */
+    private void mins5(JSONObject dataJson){
+        DecimalFormat df = new DecimalFormat("######0.00");
+        //收盘价：当前价格
+        String close = dataJson.getString("close");
+        log.info("当前价格：xrpusdt = "+close);
+        //取出上次预留价格
+        JSONObject redis =  JSONObject.fromObject(redisStrService.getKey("xrpusdt"));
+        JSONObject dateJson = DateUtil.dateDiffer
+                (dateFormat.format(new Date()),redis.getString("dataTime"));
+        if(dateJson!= null && dateJson.has("min")){
+            Long min = dateJson.getLong("min");
+            if(min >= 5){
+                String upClose = redis.getString("xrpusdt");
+                //涨幅 = （之前价格 -  当前价格 ） /  当前价格 ，
+                Double dClose =  Double.parseDouble(close);
+                Double dupClose =  Double.parseDouble(upClose);
+                Double rose  = ( dClose - dupClose) / dClose;
+                String strRose = df.format(rose);
+                String msg = "";
+                    if(dupClose < dClose){
+                        msg = "上涨";
+                    }else{
+                        msg = "下跌";
+                    }
+                if(rose > 2 || rose < -2){
+                    String subject = "xrpusdt ：5分钟内波动较大，"+"波动比例 = "+msg+"："+strRose+"%"+
+                            " -- 当前价格为 "+close+"，之前价格为:"+dupClose;
+                    emailSend.sendMail("2037520355@qq.com",subject,subject);
+                    /**
+                     *  30分钟的Obj监控
+                     *  [
+                            {
+                             "dataTime": "2017-12-29 04:35:32",
+                             "xrpusdt": "1.1277"
+                             }
+                        ]
+                     */
+                    redisStrService.setKey("monitor_30","close" );
+                }
+                JSONObject redisJson = new JSONObject();
+                redisJson.put("xrpusdt",close);
+                redisJson.put("dataTime",dateFormat.format(new Date()));
+                redisStrService.setKey("xrpusdt",String.valueOf(redisJson));
+            }
+        }
+    }
+
 
 
     /**
