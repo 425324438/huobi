@@ -21,7 +21,7 @@ import java.util.Map;
 public class Config {
 
 
-    @RequestMapping("/")
+    @RequestMapping("/config")
     public String index(ModelMap map) {
         // 加入一个属性，用来在模板中读取
         map.addAttribute("name", "123123");
