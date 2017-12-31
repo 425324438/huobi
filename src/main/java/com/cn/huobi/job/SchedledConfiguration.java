@@ -22,6 +22,7 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -33,7 +34,7 @@ import java.util.Map;
  */
 @Component
 @Configuration
-@EnableScheduling // 启用定时任务
+@EnableScheduling
 public class SchedledConfiguration  {
     private static final Logger log = LoggerFactory.getLogger(SchedledConfiguration.class);
 
@@ -68,26 +69,28 @@ public class SchedledConfiguration  {
              }
           ]
      */
-//    @Scheduled(fixedRate = 1000 * 60 * 10)
     @Scheduled(fixedRate = 1000 * 5 )
     public void job(){
-        Map<String,String> createMap = new HashMap<String,String>(){
-            {
-                put("symbol","xrpusdt");
-                put("period","1min");
-                put("size","10");
-            }
-        };
-        String httpOrgCreateTestRtn = httpsClientUtil.doGet("https://api.huobi.pro/market/history/kline",createMap,charset);
-        JSONObject json =  JSONObject.fromObject(httpOrgCreateTestRtn);
-        if(json.has("status")){
-            String status = json.getString("status");
-            if(StringUtils.equals(status,"ok")){
-                JSONArray data = JSONArray.fromObject(json.get("data"));
-                for(int i=0;i < data.size();i++){
-                    JSONObject dataJson = data.getJSONObject(i);
-                    mins5(dataJson);
-                    break;
+        List<String> currencyList = redisListService.range("currencyList");
+        for(String currency : currencyList){
+            Map<String,String> createMap = new HashMap<String,String>(){
+                {
+                    put("symbol",currency);
+                    put("period","1min");
+                    put("size","10");
+                }
+            };
+            String httpOrgCreateTestRtn = httpsClientUtil.doGet("https://api.huobi.pro/market/history/kline",createMap,charset);
+            JSONObject json =  JSONObject.fromObject(httpOrgCreateTestRtn);
+            if(json.has("status")){
+                String status = json.getString("status");
+                if(StringUtils.equals(status,"ok")){
+                    JSONArray data = JSONArray.fromObject(json.get("data"));
+                    for(int i=0;i < data.size();i++){
+                        JSONObject dataJson = data.getJSONObject(i);
+                        mins5(dataJson,currency);
+                        break;
+                    }
                 }
             }
         }
@@ -100,18 +103,26 @@ public class SchedledConfiguration  {
      *      30分钟的循环每次从这里取，如果监控到涨幅超过 10%， 放入一天  （redis key）--》
      *          1天一次的定时器对其监控
      */
-    private void mins5(JSONObject dataJson){
+    private void mins5(JSONObject dataJson,String currency){
         DecimalFormat df = new DecimalFormat("######0.000");
         //收盘价：当前价格
         String close = dataJson.getString("close");
         //取出上次预留价格
-        JSONObject redis =  JSONObject.fromObject(redisStrService.getKey("xrpusdt"));
+        Object obj = redisStrService.getKey(currency);
+        if(obj == null){
+            JSONObject redisJson = new JSONObject();
+            redisJson.put(currency,close);
+            redisJson.put("dataTime",dateFormat.format(new Date()));
+            redisStrService.setKey(currency,String.valueOf(redisJson));
+            obj = redisJson;
+        }
+        JSONObject redis =  JSONObject.fromObject(obj);
         JSONObject dateJson = DateUtil.dateDiffer
                 (dateFormat.format(new Date()),redis.getString("dataTime"));
         if(dateJson!= null && dateJson.has("min")){
             Long min = dateJson.getLong("min");
-            String upClose = redis.getString("xrpusdt");
-            log.info("当前价格：xrpusdt = "+close+"，之前价格"+upClose);
+            String upClose = redis.getString(currency);
+            log.info("当前价格："+currency+" = "+close+"，之前价格"+upClose);
             //涨幅 = （（现在价格  - 之前价格） / 现在价格） * 100
             Double dClose =  Double.parseDouble(close);//当前价格
             Double dupClose =  Double.parseDouble(upClose);//之前价格
@@ -124,10 +135,10 @@ public class SchedledConfiguration  {
             }else{
                 msg = "下跌";
             }
-            log.info("当前趋势：xrpusdt = "+msg+"："+rose+"%");
-            redisListService.listSet("xrpusdt_List",String.valueOf(rose));
+            log.info("当前趋势："+currency+" = "+msg+"："+rose+"%");
+            redisListService.listSet(currency+"_List",String.valueOf(rose));
             if(rose >= 2.0 || rose <= -2.0 ){
-                String subject = "xrpusdt ：5分钟内波动较大，"+"波动比例 = "+msg+"："+strRose+"%"+
+                String subject = currency+" ：5分钟内波动较大，"+"波动比例 = "+msg+"："+strRose+"%"+
                         " -- 当前价格为 "+close+"，之前价格为:"+dupClose;
                 emailSend.sendMail("2037520355@qq.com",subject,subject);
                 /**
@@ -138,21 +149,21 @@ public class SchedledConfiguration  {
                  }
                  */
                 JSONObject huobi = new JSONObject();
-                huobi.put("xrpusdt",close);
+                huobi.put(currency,close);
                 huobi.put("dataTime",dateFormat.format(new Date()));
-                redisHashService.setHash("monitor_30"+"xrpusdt",huobi);
+                redisHashService.setHash("monitor_30"+currency,huobi);
                 //5分钟更新一次（或者价格波动较大） redis 数据, 每次比较与5分钟之前的 价格比较
                 JSONObject redisJson = new JSONObject();
-                redisJson.put("xrpusdt",close);
+                redisJson.put(currency,close);
                 redisJson.put("dataTime",dateFormat.format(new Date()));
-                redisStrService.setKey("xrpusdt",String.valueOf(redisJson));
+                redisStrService.setKey(currency,String.valueOf(redisJson));
             }
             if( min >= 5 ){
                 //5分钟更新一次（或者价格波动较大） redis 数据, 每次比较与5分钟之前的 价格比较
                 JSONObject redisJson = new JSONObject();
-                redisJson.put("xrpusdt",close);
+                redisJson.put(currency,close);
                 redisJson.put("dataTime",dateFormat.format(new Date()));
-                redisStrService.setKey("xrpusdt",String.valueOf(redisJson));
+                redisStrService.setKey(currency,String.valueOf(redisJson));
             }
         }
     }

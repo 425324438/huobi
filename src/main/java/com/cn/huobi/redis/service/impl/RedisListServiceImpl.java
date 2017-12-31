@@ -59,4 +59,10 @@ public class RedisListServiceImpl implements RedisListService {
         return template.opsForList().range(var1,var2,var4);
     }
 
+    @Override
+    public List<String> range(String k) {
+        List<String> lis = template.opsForList().
+                range(k,0,template.opsForList().size(k));
+        return lis;
+    }
 }

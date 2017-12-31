@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 开发者 liaoliping
@@ -33,9 +34,18 @@ public class RedisListTest {
         huobi.put("xrpusdt","65765");
         huobi.put("dataTime",dateFormat.format(new Date()));
 
-//        template.opsForList().leftPush("monitor_30", String.valueOf(huobi));
-        redisListService.listSet("xrpusdt_List",0.123);
+        template.opsForList().leftPush("monitor_30", String.valueOf(huobi));
     }
 
+    @Test
+    public void getTest(){
+
+        List<String> lis = template.opsForList().range("currencyList",0,template.opsForList().size("currencyList"));
+        for (int i=0;i < lis.size();i++){
+            System.out.print(lis.get(i)+"\n");
+        }
+
+
+    }
 
 }

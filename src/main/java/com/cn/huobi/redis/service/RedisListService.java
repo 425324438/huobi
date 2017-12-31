@@ -21,4 +21,10 @@ public interface RedisListService {
 
     List<Object> listrange(String var1, long var2, long var4);
 
+    /**
+     * 获取List 数据
+     * @return
+     */
+    List<String> range(String k);
+
 }
