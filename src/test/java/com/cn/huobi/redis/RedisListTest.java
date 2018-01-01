@@ -37,13 +37,6 @@ public class RedisListTest {
         template.opsForList().leftPush("monitor_30", String.valueOf(huobi));
     }
 
-    @Test
-    public void getTest(){
-        List<String> lis = template.opsForList().range("currencyList",0,template.opsForList().size("currencyList"));
-        for (int i=0;i < lis.size();i++){
-            System.out.print(lis.get(i)+"\n");
-        }
-    }
 
     @Test
     public void removeTest(){
