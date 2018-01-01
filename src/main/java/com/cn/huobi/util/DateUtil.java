@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -49,5 +50,58 @@ public  class DateUtil {
             log.error(e.getMessage() , e);
         }
         return null;
+    }
+
+    /**
+     * 判断时间是否在时间段内
+     * @param nowTime 当前时间
+     * @param beginTime 开始时间
+     * @param endTime 结束时间
+     * @return
+     */
+    public static boolean belongCalendar(Date nowTime, Date beginTime, Date endTime) {
+        Calendar date = Calendar.getInstance();
+        date.setTime(nowTime);
+
+        Calendar begin = Calendar.getInstance();
+        begin.setTime(beginTime);
+
+        Calendar end = Calendar.getInstance();
+        end.setTime(endTime);
+
+        if (date.after(begin) && date.before(end)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * @param startTimeStr 格式 06:00
+     * @param endTimeStr    格式 22:00
+     * @param time           当前时间
+     * @return 如果在区间之内 则返回 true
+     */
+    public static boolean isBelong(String startTimeStr,String endTimeStr,Date time){
+        SimpleDateFormat df = new SimpleDateFormat("HH:mm");//设置日期格式
+        Date beginTime = null;
+        Date endTime = null;
+        try {
+            time = df.parse(df.format(new Date()));
+            beginTime = df.parse(startTimeStr);
+            endTime = df.parse(endTimeStr);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Boolean flag = belongCalendar(time, beginTime, endTime);
+        if (flag) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.print(DateUtil.isBelong("19:07","22:00", new Date()));
     }
 }

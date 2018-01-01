@@ -39,13 +39,30 @@ public class RedisListTest {
 
     @Test
     public void getTest(){
-
         List<String> lis = template.opsForList().range("currencyList",0,template.opsForList().size("currencyList"));
         for (int i=0;i < lis.size();i++){
             System.out.print(lis.get(i)+"\n");
         }
-
-
     }
 
+    @Test
+    public void removeTest(){
+
+        JSONObject userJson = new JSONObject();
+        userJson.put("user","asdawd");
+        userJson.put("currency","dqwdqw");
+        userJson.put("email","qwdqw");
+
+        List<String> lis = template.opsForList().range("userEmail",0,template.opsForList().size("userEmail"));
+        for(int i=0;i< lis.size();i++){
+            String str = lis.get(i);
+            JSONObject strJsonData = JSONObject.fromObject(str);
+            if(strJsonData.has("user")){
+                String userEmail = strJsonData.getString("user");
+                if(userEmail.equals("asdawd")){
+                    template.opsForList().remove("userEmail",i+1,String.valueOf(userJson));
+                }
+            }
+        }
+    }
 }

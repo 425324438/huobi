@@ -20,10 +20,7 @@ import org.springframework.stereotype.Component;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author  liaoliping
@@ -71,7 +68,8 @@ public class SchedledConfiguration  {
      */
     @Scheduled(fixedRate = 1000 * 5 )
     public void job(){
-        List<String> currencyList = redisListService.range("currencyList");
+        String currencySize = redisStrService.getKey("currencyList").toString();
+        List<String> currencyList = Arrays.asList(currencySize.split(","));
         for(String currency : currencyList){
             Map<String,String> createMap = new HashMap<String,String>(){
                 {
@@ -140,7 +138,7 @@ public class SchedledConfiguration  {
             if(rose >= 2.0 || rose <= -2.0 ){
                 String subject = currency+" ：5分钟内波动较大，"+"波动比例 = "+msg+"："+strRose+"%"+
                         " -- 当前价格为 "+close+"，之前价格为:"+dupClose;
-                emailSend.sendMail("2037520355@qq.com",subject,subject);
+                emailSend.sendMailByUser(currency,subject,subject);
                 /**
                  *  30分钟的Obj监控
                  *  {

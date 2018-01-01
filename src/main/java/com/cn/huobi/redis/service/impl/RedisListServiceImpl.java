@@ -65,4 +65,9 @@ public class RedisListServiceImpl implements RedisListService {
                 range(k,0,template.opsForList().size(k));
         return lis;
     }
+
+    @Override
+    public Long remove(String k, String obj) {
+        return template.opsForList().rightPush(k,obj);
+    }
 }
