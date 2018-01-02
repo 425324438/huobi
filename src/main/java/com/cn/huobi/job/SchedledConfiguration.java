@@ -66,7 +66,7 @@ public class SchedledConfiguration  {
           ]
      */
 //    @Scheduled(fixedRate = 1000 * 60 * 10)
-    @Scheduled(fixedRate = 1000 * 5 )
+    @Scheduled(fixedRate = 1000 * 60 )
     public void job(){
         Map<String,String> createMap = new HashMap<String,String>(){
             {
