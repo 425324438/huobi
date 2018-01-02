@@ -126,7 +126,6 @@ public class EmailSend {
                         JSONArray data = JSONArray.fromObject(json.get("data"));
                         for(int i=0;i < data.size();i++){
                             JSONObject dataJson = data.getJSONObject(i);
-//                        mins5(dataJson,currency);
                             DecimalFormat df = new DecimalFormat("######0.000");
                             //收盘价：当前价格
                             String close = dataJson.getString("close");

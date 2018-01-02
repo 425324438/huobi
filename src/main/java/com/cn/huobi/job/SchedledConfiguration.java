@@ -118,7 +118,6 @@ public class SchedledConfiguration  {
         JSONObject redis =  JSONObject.fromObject(obj);
         JSONObject dateJson = DateUtil.dateDiffer
                 (dateFormat.format(new Date()),redis.getString("dataTime"));
-        if(dateJson!= null && dateJson.has("min")){
             Long min = dateJson.getLong("min");
             String upClose = redis.getString(currency);
             log.info("当前价格："+currency+" = "+close+"，之前价格"+upClose);
@@ -135,7 +134,8 @@ public class SchedledConfiguration  {
                 msg = "下跌";
             }
             log.info("当前趋势："+currency+" = "+msg+"："+rose+"%");
-            redisListService.listSet(currency+"_List",String.valueOf(rose));
+
+            if(dateJson!= null && dateJson.has("min")){
             if(rose >= 2.0 || rose <= -2.0 ){
                 String subject = currency+" ：5分钟内波动较大，"+"波动比例 = "+msg+"："+strRose+"%"+
                         " -- 当前价格为 "+close+"，之前价格为:"+dupClose;
