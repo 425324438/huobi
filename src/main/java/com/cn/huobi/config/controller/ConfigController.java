@@ -1,6 +1,6 @@
-package com.cn.huobi.config;
+package com.cn.huobi.config.controller;
 
-import com.cn.huobi.config.model.Person;
+import com.cn.huobi.email.EmailSend;
 import com.cn.huobi.redis.service.RedisHashService;
 import com.cn.huobi.redis.service.RedisListService;
 import com.cn.huobi.redis.service.RedisStrService;
@@ -8,17 +8,12 @@ import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 开发者 liaoliping
@@ -26,7 +21,7 @@ import java.util.Map;
  * time：22:47
  */
 @Controller
-public class Config {
+public class ConfigController {
 
     @Autowired
     private RedisStrService redisStrService;
@@ -36,6 +31,8 @@ public class Config {
     private RedisListService redisListService;
     @Autowired
     private StringRedisTemplate template;
+    @Autowired
+    private EmailSend emailSend;
 
     @RequestMapping("/config")
     public String index(ModelMap map) {
@@ -129,6 +126,17 @@ public class Config {
         }
     }
 
-
+    /**
+     *  用户发送测试邮件
+     */
+    @ResponseBody
+    @RequestMapping("/testEmail")
+    public String testEmail(HttpServletRequest req){
+        String userEmail = req.getParameter("user");
+        String currency = req.getParameter("currency");
+        String[] arr = currency.split(",");
+        List list = java.util.Arrays.asList(arr);
+        return emailSend.testSendEmailToUser(list,userEmail);
+    }
 
 }

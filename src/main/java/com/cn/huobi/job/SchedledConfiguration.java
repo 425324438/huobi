@@ -66,6 +66,7 @@ public class SchedledConfiguration  {
              }
           ]
      */
+
     @Scheduled(fixedRate = 1000 * 5 )
     public void job(){
         String currencySize = redisStrService.getKey("currencyList").toString();

@@ -68,7 +68,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">关注的货币</label>
-                    <input type="text" class="form-control" id="user_currency" placeholder="格式：xrpusdt/eosusdt/btcusdt...">
+                    <input type="text" class="form-control" id="user_currency" placeholder="格式（多个英文逗号分割）：xrpusdt、eosusdt、btcusdt...">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">是否接收邮件</label>
@@ -171,7 +171,29 @@
             }
         });
     }
-    
+
+    function testEmail(_this) {
+        var li = $(_this).parent();
+        var userEmail = $(li).find("#del_user");
+        var currency = $(li).find("#del_currency");
+        $(_this).button('loading');
+        setInterval(reset,1000)
+        $.ajax({
+            type: "get",
+            url: "/testEmail",
+            data :{
+                'user':userEmail[0].innerText,
+                'currency':currency[0].innerText,
+            },
+            success: function(msg) {
+                alert('邮件发送：'+msg);
+            }
+        });
+    }
+    var i=0;
+    function reset(_this){
+        $(_this).button('reset');
+    }
 //    function delUser(_this) {
 //        var li = $(_this).parent();
 //        var del_user = $(li).find("#del_user");
