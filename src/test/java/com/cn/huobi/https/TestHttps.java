@@ -39,7 +39,8 @@ public class TestHttps {
     @Test
     public void  testGet(){
         Map<String,String> createMap = new HashMap<String,String>();
-        createMap.put("symbol","xrpusdt");
+//        createMap.put("symbol","xrpusdt");
+        createMap.put("symbol","eosusdt");
         createMap.put("period","1min");
         createMap.put("size","10");
         String httpOrgCreateTestRtn = httpsClientUtil.doGet("https://api.huobi.pro/market/history/kline",createMap,charset);

@@ -41,6 +41,6 @@ public class RedisTest {
         }else{
             msg = "下跌";
         }
-        System.out.print(msg+"："+rose);
+        System.out.print(9.8E-4 >= 2.0);
     }
 }

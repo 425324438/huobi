@@ -32,6 +32,6 @@ public class EmailTest {
         message.setTo("2037520355@qq.com"); //自己给自己发送邮件
         message.setSubject("主题：简单邮件");
         message.setText("测试邮件内容");
-        mailSender.send(message);
+//        mailSender.send(message);
     }
 }
