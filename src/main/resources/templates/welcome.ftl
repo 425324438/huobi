@@ -22,16 +22,116 @@
     }
 </style>
 <body>
-
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
+            <h3>火币网数字货币监控系统
+                <small>
+                    <a target="view_window" href="https://github.com/425324438/huobi">项目代码：https://github.com/425324438/huobi</a>
+                </small>
+            </h3>
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">系统监控的货币</h3>
                 </div>
                 <div class="panel-body" id="currency">
-                    <span ></span>
+                    <span></span>
+                </div>
+            </div>
+        <#--说明-->
+            <p class="text-primary">本系统只监控【火币网的数据】（因为开发者本人目前只在火币网玩）</p>
+
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion"
+                               href="#collapseOne">
+                                你开发这个的是用来卖钱吗？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            不是啊，各位<strong>大佬</strong>要是因为我的这个小程序赚到了钱了，我心里就很开心了。说明我做的东西有价值，同时我也欢迎打赏。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion"
+                               href="#collapseTwo">
+                                做公益啊！
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            对呀！其实我的做 项目有人用 我就很开心了
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion"
+                               href="#collapseThree_qq">
+                                可以连到微信上吗?或者QQ,这样更方便呀
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree_qq" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>这个 还没有想过呢</p>
+                            <p>我估计微信可以  QQ应该不行的</p>
+                            <p>因为你想要接收到 微信通知的话 你至少得关注 公众号 ，然后调用公众号的接口，或者你得加一个人的微信好友，通过好友通知</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion"
+                               href="#collapseThree_phone">
+                                或者手机短信，也比邮箱方便
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree_phone" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>我一开始也是这么想的</p>
+                            <p>但是我后来发现 还是自己太天真了</p>
+                            <p>郭嘉对 短信这块儿管的很严的</p>
+                            <p>只能用 几个模版发送短信，多余的什么乱系八糟的 都不行</p>
+                            <p>数字货币就很典型了 </p>
+                            <p>找了几个短信平台都不行，而且发短信 还是收费的，邮件是免费的。多好</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion"
+                               href="#collapseThree">
+                                你这个东西怎么用呢？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>这你算是问到关键问题了。</p>
+                            <p>首先你要看看上面[系统关注的货币]有没有你想要的，如果没有的话你就添加上你需要的货币（格式是 交易币种 + 基础币种，比如：你想关注 USDT区的 LTC 那么就写成 ltcusdt ）</p>
+                            <p>然后在下面[当前用户]里点击添加用户按钮，添加一个新用户（个人建议申请一个新的邮箱，然后关注的货币格式与上面系统关注货币格式是一样的，还有一个要说明的就是[接收邮件的时间区间] 如果24都会发邮件的话 肯定是很烦人的，所以各位<strong>大佬</strong>根据自己的喜好自己配置。）</p>
+                            <p>然后手机上下载一个QQ邮箱的应用，登录你的QQ邮箱，就可以发送邮件提醒了，你可以先发一个测试邮件试试。（每种货币发一封邮件，如果你关注多个货币，就会发多个邮件）</p>
+                            <p>开发者QQ：425324438,有问题请联系我，项目还在持续开发中。。。</p>
+                            <p>目前实现的功能：
+                            <ul>
+                                <li>您关注的货币在 <strong>5</strong> 分钟内波动大于 <strong>2%</strong> 发送邮件通知</li>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -40,19 +140,15 @@
                     <h3 class="panel-title">当前用户</h3>
                 </div>
                 <div class="panel-body">
-                    <ul class="list-group" id="user">
-                        <li class="list-group-item" >
-                            <span >阿斯顿</span>
-                            <span >123123</span>
-                            <button class="btn" >获得名字</button>
-                        </li>
-                    </ul>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">添加用户</button>
+                    <ul class="list-group" id="user">
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <div id="userDetail" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
     <div class="modal-dialog modal-sm" role="document">
@@ -177,7 +273,6 @@
         var userEmail = $(li).find("#del_user");
         var currency = $(li).find("#del_currency");
         $(_this).button('loading');
-        setInterval(reset,1000)
         $.ajax({
             type: "get",
             url: "/testEmail",
@@ -187,38 +282,36 @@
             },
             success: function(msg) {
                 alert('邮件发送：'+msg);
+                $(_this).button('reset');
             }
         });
     }
-    var i=0;
-    function reset(_this){
-        $(_this).button('reset');
-    }
-//    function delUser(_this) {
-//        var li = $(_this).parent();
-//        var del_user = $(li).find("#del_user");
-//        var del_currency = $(li).find("#del_currency");
-//        var email = $(li).find("#email");
-//
-//        var del_start = $(li).find("#del_start");
-//        var del_end = $(li).find("#del_end");
-//        if(confirm('确定删除么？')){
-//            $.ajax({
-//                type: "get",
-//                data :{
-//                    'user': del_user[0].innerText,
-//                    'currency': del_currency[0].innerText,
-//                    'email': email[0].innerText,
-//                    'user_start': del_start[0].innerText,
-//                    'user_end': del_end[0].innerText
-//                },
-//                success: function(msg) {
-//                    alert(msg);
-//                    getUser();
-//                }
-//            });
-//        }
-//    }
+
+    //    function delUser(_this) {
+    //        var li = $(_this).parent();
+    //        var del_user = $(li).find("#del_user");
+    //        var del_currency = $(li).find("#del_currency");
+    //        var email = $(li).find("#email");
+    //
+    //        var del_start = $(li).find("#del_start");
+    //        var del_end = $(li).find("#del_end");
+    //        if(confirm('确定删除么？')){
+    //            $.ajax({
+    //                type: "get",
+    //                data :{
+    //                    'user': del_user[0].innerText,
+    //                    'currency': del_currency[0].innerText,
+    //                    'email': email[0].innerText,
+    //                    'user_start': del_start[0].innerText,
+    //                    'user_end': del_end[0].innerText
+    //                },
+    //                success: function(msg) {
+    //                    alert(msg);
+    //                    getUser();
+    //                }
+    //            });
+    //        }
+    //    }
 
     function addUser() {
         var user_user = $('#user_user').val();
@@ -243,7 +336,7 @@
             }
         });
     }
-    
+
 </script>
 </html>
 
