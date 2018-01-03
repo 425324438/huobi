@@ -28,6 +28,7 @@
             <h3>火币网数字货币监控系统
                 <small>
                     <a target="view_window" href="https://github.com/425324438/huobi">项目代码：https://github.com/425324438/huobi</a>
+                    欢迎<strong>Star</strong>
                 </small>
             </h3>
             <div class="panel panel-primary">
@@ -135,6 +136,8 @@
                 </div>
             </div>
 
+            <#--<p class="text-danger">特此声明：我要感谢我的女朋友/未来的老婆，是她每天用自己的时间来照顾我，-->
+                <#--让我有尽量多的时间去做我自己喜欢做的事情。可以说这个项目有她一半的功劳。在这里，我感谢她。老婆我一定会娶你的！</p>-->
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">当前用户</h3>
