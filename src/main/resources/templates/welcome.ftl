@@ -20,6 +20,12 @@
         background-color: #fff;
         text-align: center;
     }
+    .dashang  {
+        height: 60px;
+    }
+    .width-100 {
+        width: 100%;
+    }
 </style>
 <body>
 <div class="container">
@@ -147,6 +153,15 @@
                     <ul class="list-group" id="user">
                     </ul>
                 </div>
+            </div>
+        </div>
+        <div class="col-sm-3 ">
+            <div class="dashang"></div>
+            <div style=" text-align: center;color: #b55d5dc7;">
+                欢迎
+                <img class="width-100" src="${request.contextPath }/image/wx.JPG">
+                打赏
+                <img class="width-100" src="${request.contextPath }/image/zfb.JPG">
             </div>
         </div>
     </div>
