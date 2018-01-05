@@ -48,8 +48,6 @@ public class SchedledConfiguration  {
     @Autowired
     private RedisHashService redisHashService;
     @Autowired
-    private RedisListService redisListService;
-    @Autowired
     private EmailSend emailSend;
 
     /**

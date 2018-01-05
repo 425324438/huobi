@@ -26,6 +26,9 @@
     .width-100 {
         width: 100%;
     }
+    .img-display {
+        display: none;
+    }
 </style>
 <body>
 <div class="container">
@@ -158,10 +161,17 @@
         <div class="col-sm-3 ">
             <div class="dashang"></div>
             <div style=" text-align: center;color: #b55d5dc7;">
-                欢迎
-                <img class="width-100" src="${request.contextPath }/image/wx.JPG">
-                打赏
-                <img class="width-100" src="${request.contextPath }/image/zfb.JPG">
+                欢迎打赏
+                <p>
+                    <a href="javascript:;" onclick="showWxImg()">微信</a>
+                </p>
+                <p>
+                    <a href="javascript:;" onclick="showZfbImg()">支付宝</a>
+                </p>
+
+                <img id="img_wx" class="img-display width-100" src="${request.contextPath }/image/wx.JPG">
+
+                <img id="img_zfb" class="img-display width-100" src="${request.contextPath }/image/zfb.JPG">
             </div>
         </div>
     </div>
@@ -228,6 +238,24 @@
 
     getCurrency();
     getUser();
+    
+    function showWxImg() {
+        var wx = $('#img_wx')[0];
+        if(wx.style.display == 'none'){
+            wx.style.display = 'block';
+        }else{
+            wx.style.display = 'none';
+        }
+    }
+    function showZfbImg() {
+        var zfb = $('#img_zfb')[0];
+        if(zfb.style.display == 'none'){
+            zfb.style.display = 'block';
+        }else{
+            zfb.style.display = 'none';
+        }
+    }
+    
     var currencyList = '';
     function getCurrency() {
         $.ajax({

@@ -18,6 +18,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -32,7 +33,6 @@ import java.util.*;
 public class Mins30 {
     private static final Logger log = LoggerFactory.getLogger(Mins30.class);
 
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     @Value("${huobi.market}")
     private String market ;
     @Value("${huobi.trade}")
@@ -45,14 +45,12 @@ public class Mins30 {
     @Autowired
     private RedisHashService redisHashService;
     @Autowired
-    private RedisListService redisListService;
-    @Autowired
     private EmailSend emailSend;
 
     /**
-     *  30分钟 执行一次
+     *  5分钟 执行一次
      */
-    @Scheduled(fixedRate = 1000 * 60 * 30 )
+    @Scheduled(fixedRate = 1000 * 60 * 2 )
     public void job(){
         String currencySize = redisStrService.getKey("currencyList").toString();
         List<String> currencyList = Arrays.asList(currencySize.split(","));
@@ -80,24 +78,19 @@ public class Mins30 {
         }
     }
 
+    /**
+     *
+     * @param dataJson 接口返回的最新价格
+     * @param currency 币种
+     */
     private void mins30(JSONObject dataJson,String currency){
         DecimalFormat df = new DecimalFormat("######0.000");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         //收盘价：当前价格
         String close = dataJson.getString("close");
         //取出上次预留价格
-        Object obj = redisStrService.getKey(currency);
-        if(obj == null){
-            JSONObject redisJson = new JSONObject();
-            redisJson.put(currency,close);
-            redisJson.put("dataTime",dateFormat.format(new Date()));
-            redisStrService.setKey(currency,String.valueOf(redisJson));
-            obj = redisJson;
-        }
-        JSONObject redis =  JSONObject.fromObject(obj);
-        JSONObject dateJson = DateUtil.dateDiffer
-                (dateFormat.format(new Date()),redis.getString("dataTime"));
-        Long min = dateJson.getLong("min");
-        String upClose = redis.getString(currency);
+        String upClose = (String)redisHashService.getHashObject("monitor_30"+currency,currency);
+        String minTime = (String)redisHashService.getHashObject("monitor_30"+currency,"dataTime");
         log.info("当前价格："+currency+" = "+close+"，之前价格"+upClose);
         //涨幅 = （（现在价格  - 之前价格） / 现在价格） * 100
         Double dClose =  Double.parseDouble(close);//当前价格
@@ -111,37 +104,34 @@ public class Mins30 {
         }else{
             msg = "下跌";
         }
-        log.info("当前趋势："+currency+" = "+msg+"："+rose+"%");
-
-        if(dateJson!= null && dateJson.has("min")){
+        Date dateTime1 = new Date();
+        //相差的时间
+        JSONObject dateTime = DateUtil.dateDiffer(dateFormat.format(dateTime1),minTime);
+        Long min = dateTime.getLong("min");
+        if(min != null){
             if(rose >= 5.0 || rose <= -5.0 ){
-                String subject = currency+" ：30分钟内波动较大，"+"波动比例 = "+msg+"："+strRose+"%"+
-                        " -- 当前价为 "+close+"，之前价为:"+dupClose;
+                String subject = currency+" ："+dateTime+"分钟内波动较大，"+"波动比例="+msg+"："+strRose+"%"+
+                        " --当前价为 "+close+"，之前价为:"+dupClose;
                 emailSend.sendMailByUser(currency,subject,subject);
-                /**
-                 *  30分钟的Obj监控
-                 *  {
-                 "dataTime": "2017-12-29 04:35:32",
-                 "xrpusdt": "1.1277"
-                 }
-                 */
                 JSONObject huobi = new JSONObject();
                 huobi.put(currency,close);
                 huobi.put("dataTime",dateFormat.format(new Date()));
                 redisHashService.setHash("monitor_30"+currency,huobi);
-                //5分钟更新一次（或者价格波动较大） redis 数据, 每次比较与5分钟之前的 价格比较
-                JSONObject redisJson = new JSONObject();
-                redisJson.put(currency,close);
-                redisJson.put("dataTime",dateFormat.format(new Date()));
-                redisStrService.setKey(currency,String.valueOf(redisJson));
+            }else{
+                JSONObject huobi = new JSONObject();
+                huobi.put(currency,close);
+                huobi.put("dataTime",dateFormat.format(new Date()));
+                redisHashService.setHash("monitor_30"+currency,huobi);
             }
-            if( min >= 30 ){
-                //5分钟更新一次（或者价格波动较大） redis 数据, 每次比较与5分钟之前的 价格比较
-                JSONObject redisJson = new JSONObject();
-                redisJson.put(currency,close);
-                redisJson.put("dataTime",dateFormat.format(new Date()));
-                redisStrService.setKey(currency,String.valueOf(redisJson));
-            }
+            //1小时 定时发邮件
+        }else if(min >= 60){
+            String subject = "1小时推送："+currency+" ："+dateTime+"分钟内波动较大，"+"波动比例="+msg+"："+strRose+"%"+
+                    " --当前价为 "+close+"，之前价为:"+dupClose;
+            emailSend.sendMailByUser(currency,subject,subject);
+            JSONObject huobi = new JSONObject();
+            huobi.put(currency,close);
+            huobi.put("dataTime",dateFormat.format(new Date()));
+            redisHashService.setHash("monitor_30"+currency,huobi);
         }
     }
 }

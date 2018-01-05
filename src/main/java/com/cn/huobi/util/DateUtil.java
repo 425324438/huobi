@@ -19,17 +19,17 @@ import java.util.Date;
 public  class DateUtil {
     private static final Logger log = LoggerFactory.getLogger(DateUtil.class);
     /**
-     * @param DateStr1  DateStr1 = "2017-12-28 11:32:35";
-     * @param DateStr2  DateStr2 = "2017-12-28 11:32:35";
+     * @param dateStr1  DateStr1 = "2017-12-28 11:32:35";
+     * @param dateStr2  DateStr2 = "2017-12-28 11:32:35";
      * @return
      * @throws ParseException
      */
-    public static  JSONObject dateDiffer(String DateStr1,String DateStr2)   {
+    public static  JSONObject dateDiffer(String dateStr1,String dateStr2)   {
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try{
-            Date dateTime1 = dateFormat.parse(DateStr1);
-            Date dateTime2 = dateFormat.parse(DateStr2);
+            Date dateTime1 = dateFormat.parse(dateStr1);
+            Date dateTime2 = dateFormat.parse(dateStr2);
             long between = dateTime1.getTime() - dateTime2.getTime();
             long day = between / (24 * 60 * 60 * 1000);
             long hour = (between / (60 * 60 * 1000) - day * 24);
