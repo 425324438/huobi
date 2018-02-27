@@ -135,7 +135,7 @@ public class SchedledConfiguration  {
 
             if(dateJson!= null && dateJson.has("min")){
             if(rose >= 2.0 || rose <= -2.0 ){
-                String subject = currency+" ：5分钟内波动较大，"+"波动比例 = "+msg+"："+strRose+"%"+
+                String subject = currency+" ：5分钟内波动较大，"+"(波动"+msg+":"+strRose+"%)："+
                         " -- 当前价： "+close+"，之前价:"+dupClose;
                 emailSend.sendMailByUser(currency,subject,subject);
                 /**
