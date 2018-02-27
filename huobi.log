@@ -1,0 +1,878 @@
+2018-02-14 21:28:02.971  INFO 16968 --- [restartedMain] com.cn.huobi.HuobiApplication            : Starting HuobiApplication on DESKTOP-24UAFGQ with PID 16968 (D:\workspace\huobi\target\classes started by liaoliping in D:\workspace\huobi)
+2018-02-14 21:28:02.973  INFO 16968 --- [restartedMain] com.cn.huobi.HuobiApplication            : No active profile set, falling back to default profiles: default
+2018-02-14 21:28:03.047  INFO 16968 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7bb25dcb: startup date [Wed Feb 14 21:28:03 CST 2018]; root of context hierarchy
+2018-02-14 21:28:04.311  INFO 16968 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-14 21:28:05.883  INFO 16968 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8081 (http)
+2018-02-14 21:28:05.900  INFO 16968 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-02-14 21:28:05.901  INFO 16968 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-02-14 21:28:05.922  WARN 16968 --- [localhost-startStop-1] o.apache.catalina.core.StandardContext   : Failed to create work directory [H:\springboot-tomcat-tmp\work\Tomcat\localhost\ROOT] for context []
+2018-02-14 21:28:06.062  INFO 16968 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-02-14 21:28:06.063  INFO 16968 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3021 ms
+2018-02-14 21:28:06.399  INFO 16968 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-14 21:28:06.405  INFO 16968 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-14 21:28:06.405  INFO 16968 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-14 21:28:06.405  INFO 16968 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-14 21:28:06.405  INFO 16968 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-14 21:28:06.975  INFO 16968 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7bb25dcb: startup date [Wed Feb 14 21:28:03 CST 2018]; root of context hierarchy
+2018-02-14 21:28:07.028  INFO 16968 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/config]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.index(org.springframework.ui.ModelMap)
+2018-02-14 21:28:07.029  INFO 16968 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addUser]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.addUser(javax.servlet.http.HttpServletRequest)
+2018-02-14 21:28:07.029  INFO 16968 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/currency]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.getCurrencyList()
+2018-02-14 21:28:07.029  INFO 16968 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/updateCurrency]}" onto public void com.cn.huobi.config.controller.ConfigController.updateCurrency(javax.servlet.http.HttpServletRequest)
+2018-02-14 21:28:07.029  INFO 16968 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user]}" onto public java.util.List<java.lang.String> com.cn.huobi.config.controller.ConfigController.getUser()
+2018-02-14 21:28:07.030  INFO 16968 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/removeUser]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.removeUser(javax.servlet.http.HttpServletRequest)
+2018-02-14 21:28:07.030  INFO 16968 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/testEmail]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.testEmail(javax.servlet.http.HttpServletRequest)
+2018-02-14 21:28:07.032  INFO 16968 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-14 21:28:07.033  INFO 16968 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-14 21:28:07.050  INFO 16968 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/hello] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2018-02-14 21:28:07.061  INFO 16968 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-14 21:28:07.061  INFO 16968 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-14 21:28:07.099  INFO 16968 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-14 21:28:07.398  INFO 16968 --- [restartedMain] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-02-14 21:28:07.632  INFO 16968 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-02-14 21:28:07.698  INFO 16968 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-02-14 21:28:07.711  INFO 16968 --- [restartedMain] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-02-14 21:28:07.757  INFO 16968 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8081 (http)
+2018-02-14 21:28:07.762  INFO 16968 --- [restartedMain] com.cn.huobi.HuobiApplication            : Started HuobiApplication in 5.174 seconds (JVM running for 7.071)
+2018-02-14 21:28:09.610  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.Mins30                  : 当前价格：eosusdt = 9.38，之前价格8.4
+2018-02-14 21:28:11.199  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.email.EmailSend             : 1003865572@qq.com：邮件发送成功2018-02-14 09:28:11
+2018-02-14 21:28:12.530  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.email.EmailSend             : 2037520355@qq.com：邮件发送成功2018-02-14 09:28:12
+2018-02-14 21:28:13.315  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.Mins30                  : 当前价格：xrpusdt = 1.0504，之前价格0.752
+2018-02-14 21:28:14.679  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.email.EmailSend             : hack826@126.com：邮件发送成功2018-02-14 09:28:14
+2018-02-14 21:28:15.390  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.Mins30                  : 当前价格：ethusdt = 894.37，之前价格813.0
+2018-02-14 21:28:16.659  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.email.EmailSend             : 1446799935@qq.com：邮件发送成功2018-02-14 09:28:16
+2018-02-14 21:28:17.373  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.Mins30                  : 当前价格：btcusdt = 9230.41，之前价格8120.0
+2018-02-14 21:28:19.439  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.email.EmailSend             : 2037520355@qq.com：邮件发送成功2018-02-14 09:28:19
+2018-02-14 21:28:20.160  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.Mins30                  : 当前价格：htusdt = 2.5998，之前价格1.3561
+2018-02-14 21:28:21.364  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.email.EmailSend             : 1446799935@qq.com：邮件发送成功2018-02-14 09:28:21
+2018-02-14 21:28:22.000  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.37，之前价8.21
+2018-02-14 21:28:22.001  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 上涨：12.38%
+2018-02-14 21:28:23.220  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.email.EmailSend             : 1003865572@qq.com：邮件发送成功2018-02-14 09:28:23
+2018-02-14 21:28:24.307  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.email.EmailSend             : 2037520355@qq.com：邮件发送成功2018-02-14 09:28:24
+2018-02-14 21:28:25.014  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0505，之前价0.7443
+2018-02-14 21:28:25.015  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：29.148%
+2018-02-14 21:28:26.155  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.email.EmailSend             : hack826@126.com：邮件发送成功2018-02-14 09:28:26
+2018-02-14 21:28:26.882  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 894.35，之前价806.32
+2018-02-14 21:28:26.883  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 上涨：9.843%
+2018-02-14 21:28:28.302  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.email.EmailSend             : 1446799935@qq.com：邮件发送成功2018-02-14 09:28:28
+2018-02-14 21:28:29.030  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9230.38，之前价7988.0
+2018-02-14 21:28:29.031  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 上涨：13.46%
+2018-02-14 21:28:31.782  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.email.EmailSend             : 2037520355@qq.com：邮件发送成功2018-02-14 09:28:31
+2018-02-14 21:28:32.491  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5998，之前价1.3458
+2018-02-14 21:28:32.492  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 上涨：48.234%
+2018-02-14 21:28:33.724  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.email.EmailSend             : 1446799935@qq.com：邮件发送成功2018-02-14 09:28:33
+2018-02-14 21:28:34.540  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.36，之前价9.37
+2018-02-14 21:28:34.541  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.107%
+2018-02-14 21:28:35.131  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0505，之前价1.0505
+2018-02-14 21:28:35.132  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：0.0%
+2018-02-14 21:28:35.713  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 893.21，之前价894.35
+2018-02-14 21:28:35.713  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.128%
+2018-02-14 21:28:36.242  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9231.46，之前价9230.38
+2018-02-14 21:28:36.242  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 上涨：0.012%
+2018-02-14 21:28:36.809  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5974，之前价2.5998
+2018-02-14 21:28:36.810  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.092%
+2018-02-14 21:28:37.443  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.36，之前价9.37
+2018-02-14 21:28:37.444  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.107%
+2018-02-14 21:28:38.092  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0505，之前价1.0505
+2018-02-14 21:28:38.093  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：0.0%
+2018-02-14 21:28:38.640  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 893.2，之前价894.35
+2018-02-14 21:28:38.641  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.129%
+2018-02-14 21:28:39.233  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9230.31，之前价9230.38
+2018-02-14 21:28:39.234  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.001%
+2018-02-14 21:28:39.862  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5951，之前价2.5998
+2018-02-14 21:28:39.863  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.181%
+2018-02-14 21:28:40.596  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.36，之前价9.37
+2018-02-14 21:28:40.596  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.107%
+2018-02-14 21:28:41.121  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0505，之前价1.0505
+2018-02-14 21:28:41.121  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：0.0%
+2018-02-14 21:28:41.725  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 892.69，之前价894.35
+2018-02-14 21:28:41.726  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.186%
+2018-02-14 21:28:42.328  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9231.59，之前价9230.38
+2018-02-14 21:28:42.328  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 上涨：0.013%
+2018-02-14 21:28:42.923  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5951，之前价2.5998
+2018-02-14 21:28:42.923  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.181%
+2018-02-14 21:28:43.517  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.36，之前价9.37
+2018-02-14 21:28:43.517  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.107%
+2018-02-14 21:28:44.080  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0505，之前价1.0505
+2018-02-14 21:28:44.080  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：0.0%
+2018-02-14 21:28:44.655  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 892.69，之前价894.35
+2018-02-14 21:28:44.655  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.186%
+2018-02-14 21:28:45.258  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9232.0，之前价9230.38
+2018-02-14 21:28:45.258  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 上涨：0.018%
+2018-02-14 21:28:45.912  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5951，之前价2.5998
+2018-02-14 21:28:45.912  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.181%
+2018-02-14 21:28:46.505  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.36，之前价9.37
+2018-02-14 21:28:46.505  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.107%
+2018-02-14 21:28:47.111  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0515，之前价1.0505
+2018-02-14 21:28:47.111  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.095%
+2018-02-14 21:28:47.769  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 893.17，之前价894.35
+2018-02-14 21:28:47.769  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.132%
+2018-02-14 21:28:48.365  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9230.4，之前价9230.38
+2018-02-14 21:28:48.365  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 上涨：0.0%
+2018-02-14 21:28:48.944  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5992，之前价2.5998
+2018-02-14 21:28:48.944  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.023%
+2018-02-14 21:28:49.535  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.35，之前价9.37
+2018-02-14 21:28:49.535  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.214%
+2018-02-14 21:28:50.209  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0505，之前价1.0505
+2018-02-14 21:28:50.209  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：0.0%
+2018-02-14 21:28:50.801  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 892.43，之前价894.35
+2018-02-14 21:28:50.802  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.215%
+2018-02-14 21:28:51.441  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9230.2，之前价9230.38
+2018-02-14 21:28:51.441  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.002%
+2018-02-14 21:28:52.043  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5989，之前价2.5998
+2018-02-14 21:28:52.043  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.035%
+2018-02-14 21:28:52.642  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.35，之前价9.37
+2018-02-14 21:28:52.643  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.214%
+2018-02-14 21:28:53.501  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0505，之前价1.0505
+2018-02-14 21:28:53.502  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：0.0%
+2018-02-14 21:28:54.091  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 891.82，之前价894.35
+2018-02-14 21:28:54.091  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.284%
+2018-02-14 21:28:54.723  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9230.77，之前价9230.38
+2018-02-14 21:28:54.724  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 上涨：0.004%
+2018-02-14 21:28:55.338  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.597，之前价2.5998
+2018-02-14 21:28:55.339  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.108%
+2018-02-14 21:28:55.961  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.35，之前价9.37
+2018-02-14 21:28:55.962  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.214%
+2018-02-14 21:28:56.738  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0508，之前价1.0505
+2018-02-14 21:28:56.738  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.029%
+2018-02-14 21:28:57.288  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 892.01，之前价894.35
+2018-02-14 21:28:57.288  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.262%
+2018-02-14 21:28:57.882  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9235.34，之前价9230.38
+2018-02-14 21:28:57.883  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 上涨：0.054%
+2018-02-14 21:28:58.525  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5985，之前价2.5998
+2018-02-14 21:28:58.525  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.05%
+2018-02-14 21:28:59.149  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.35，之前价9.37
+2018-02-14 21:28:59.150  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.214%
+2018-02-14 21:28:59.725  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0509，之前价1.0505
+2018-02-14 21:28:59.725  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.038%
+2018-02-14 21:29:00.355  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 892.01，之前价894.35
+2018-02-14 21:29:00.355  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.262%
+2018-02-14 21:29:00.989  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9230.41，之前价9230.38
+2018-02-14 21:29:00.990  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 上涨：0.0%
+2018-02-14 21:29:01.567  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5985，之前价2.5998
+2018-02-14 21:29:01.567  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.05%
+2018-02-14 21:29:02.199  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.34，之前价9.37
+2018-02-14 21:29:02.199  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.321%
+2018-02-14 21:29:02.787  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0509，之前价1.0505
+2018-02-14 21:29:02.788  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.038%
+2018-02-14 21:29:03.369  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 892.01，之前价894.35
+2018-02-14 21:29:03.369  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.262%
+2018-02-14 21:29:03.897  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9230.4，之前价9230.38
+2018-02-14 21:29:03.897  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 上涨：0.0%
+2018-02-14 21:29:04.501  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5986，之前价2.5998
+2018-02-14 21:29:04.502  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.046%
+2018-02-14 21:29:05.074  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.34，之前价9.37
+2018-02-14 21:29:05.074  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.321%
+2018-02-14 21:29:05.656  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0509，之前价1.0505
+2018-02-14 21:29:05.656  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.038%
+2018-02-14 21:29:06.286  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 893.77，之前价894.35
+2018-02-14 21:29:06.286  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.065%
+2018-02-14 21:29:06.881  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9230.4，之前价9230.38
+2018-02-14 21:29:06.881  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 上涨：0.0%
+2018-02-14 21:29:07.507  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5981，之前价2.5998
+2018-02-14 21:29:07.507  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.065%
+2018-02-14 21:29:08.317  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.35，之前价9.37
+2018-02-14 21:29:08.317  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.214%
+2018-02-14 21:29:08.895  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0505，之前价1.0505
+2018-02-14 21:29:08.895  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：0.0%
+2018-02-14 21:29:09.451  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 893.77，之前价894.35
+2018-02-14 21:29:09.452  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.065%
+2018-02-14 21:29:10.058  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9230.4，之前价9230.38
+2018-02-14 21:29:10.059  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 上涨：0.0%
+2018-02-14 21:29:10.624  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5981，之前价2.5998
+2018-02-14 21:29:10.625  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.065%
+2018-02-14 21:29:13.325  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.35，之前价9.37
+2018-02-14 21:29:13.325  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.214%
+2018-02-14 21:29:13.961  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0505，之前价1.0505
+2018-02-14 21:29:13.961  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：0.0%
+2018-02-14 21:29:14.560  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 893.73，之前价894.35
+2018-02-14 21:29:14.560  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.069%
+2018-02-14 21:29:15.186  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9230.41，之前价9230.38
+2018-02-14 21:29:15.187  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 上涨：0.0%
+2018-02-14 21:29:15.790  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.595，之前价2.5998
+2018-02-14 21:29:15.791  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.185%
+2018-02-14 21:29:18.334  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.34，之前价9.37
+2018-02-14 21:29:18.334  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.321%
+2018-02-14 21:29:18.906  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0505，之前价1.0505
+2018-02-14 21:29:18.906  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：0.0%
+2018-02-14 21:29:19.511  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 893.72，之前价894.35
+2018-02-14 21:29:19.511  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.07%
+2018-02-14 21:29:20.011  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9233.41，之前价9230.38
+2018-02-14 21:29:20.012  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 上涨：0.033%
+2018-02-14 21:29:20.608  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.586，之前价2.5998
+2018-02-14 21:29:20.608  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.534%
+2018-02-14 21:29:23.330  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.36，之前价9.37
+2018-02-14 21:29:23.330  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.107%
+2018-02-14 21:29:23.912  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0505，之前价1.0505
+2018-02-14 21:29:23.912  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：0.0%
+2018-02-14 21:29:24.484  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 892.62，之前价894.35
+2018-02-14 21:29:24.484  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.194%
+2018-02-14 21:29:25.043  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9230.5，之前价9230.38
+2018-02-14 21:29:25.043  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 上涨：0.001%
+2018-02-14 21:29:25.627  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5811，之前价2.5998
+2018-02-14 21:29:25.628  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.724%
+2018-02-14 21:29:28.397  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.35，之前价9.37
+2018-02-14 21:29:28.397  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.214%
+2018-02-14 21:29:28.932  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0508，之前价1.0505
+2018-02-14 21:29:28.933  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.029%
+2018-02-14 21:29:29.749  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 892.77，之前价894.35
+2018-02-14 21:29:29.749  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.177%
+2018-02-14 21:29:30.334  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9230.5，之前价9230.38
+2018-02-14 21:29:30.335  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 上涨：0.001%
+2018-02-14 21:29:30.943  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5908，之前价2.5998
+2018-02-14 21:29:30.943  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.347%
+2018-02-14 21:29:33.410  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.35，之前价9.37
+2018-02-14 21:29:33.410  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.214%
+2018-02-14 21:29:34.042  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.05，之前价1.0505
+2018-02-14 21:29:34.042  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.048%
+2018-02-14 21:29:34.601  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 892.67，之前价894.35
+2018-02-14 21:29:34.602  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.188%
+2018-02-14 21:29:35.257  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9220.81，之前价9230.38
+2018-02-14 21:29:35.258  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.104%
+2018-02-14 21:29:35.877  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5909，之前价2.5998
+2018-02-14 21:29:35.877  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.344%
+2018-02-14 21:29:38.313  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.35，之前价9.37
+2018-02-14 21:29:38.313  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.214%
+2018-02-14 21:29:38.941  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.05，之前价1.0505
+2018-02-14 21:29:38.941  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.048%
+2018-02-14 21:29:39.563  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 892.35，之前价894.35
+2018-02-14 21:29:39.564  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.224%
+2018-02-14 21:29:40.181  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9220.8，之前价9230.38
+2018-02-14 21:29:40.181  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.104%
+2018-02-14 21:29:40.761  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5908，之前价2.5998
+2018-02-14 21:29:40.761  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.347%
+2018-02-14 21:29:43.329  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.35，之前价9.37
+2018-02-14 21:29:43.330  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.214%
+2018-02-14 21:29:43.957  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0475，之前价1.0505
+2018-02-14 21:29:43.957  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.286%
+2018-02-14 21:29:44.553  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 892.1，之前价894.35
+2018-02-14 21:29:44.554  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.252%
+2018-02-14 21:29:45.182  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9220.0，之前价9230.38
+2018-02-14 21:29:45.182  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.113%
+2018-02-14 21:29:45.814  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5908，之前价2.5998
+2018-02-14 21:29:45.815  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.347%
+2018-02-14 21:29:48.507  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.36，之前价9.37
+2018-02-14 21:29:48.508  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.107%
+2018-02-14 21:29:49.180  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.05，之前价1.0505
+2018-02-14 21:29:49.181  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.048%
+2018-02-14 21:29:49.795  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 892.1，之前价894.35
+2018-02-14 21:29:49.796  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.252%
+2018-02-14 21:29:50.388  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9220.0，之前价9230.38
+2018-02-14 21:29:50.389  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.113%
+2018-02-14 21:29:51.025  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5861，之前价2.5998
+2018-02-14 21:29:51.026  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.53%
+2018-02-14 21:29:53.380  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.36，之前价9.37
+2018-02-14 21:29:53.381  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.107%
+2018-02-14 21:29:54.003  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0476，之前价1.0505
+2018-02-14 21:29:54.004  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.277%
+2018-02-14 21:29:54.550  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 892.1，之前价894.35
+2018-02-14 21:29:54.550  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.252%
+2018-02-14 21:29:55.122  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9220.05，之前价9230.38
+2018-02-14 21:29:55.122  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.112%
+2018-02-14 21:29:55.751  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5861，之前价2.5998
+2018-02-14 21:29:55.752  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.53%
+2018-02-14 21:29:58.372  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.36，之前价9.37
+2018-02-14 21:29:58.372  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.107%
+2018-02-14 21:29:59.007  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0475，之前价1.0505
+2018-02-14 21:29:59.008  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.286%
+2018-02-14 21:29:59.754  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 892.1，之前价894.35
+2018-02-14 21:29:59.754  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.252%
+2018-02-14 21:30:00.359  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9221.85，之前价9230.38
+2018-02-14 21:30:00.360  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.092%
+2018-02-14 21:30:00.986  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.581，之前价2.5998
+2018-02-14 21:30:00.986  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.728%
+2018-02-14 21:30:03.451  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.35，之前价9.37
+2018-02-14 21:30:03.452  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.214%
+2018-02-14 21:30:04.015  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0468，之前价1.0505
+2018-02-14 21:30:04.016  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.353%
+2018-02-14 21:30:04.640  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 891.19，之前价894.35
+2018-02-14 21:30:04.640  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.355%
+2018-02-14 21:30:05.210  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9221.85，之前价9230.38
+2018-02-14 21:30:05.211  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.092%
+2018-02-14 21:30:05.801  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5861，之前价2.5998
+2018-02-14 21:30:05.801  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.53%
+2018-02-14 21:30:08.463  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.Mins30                  : 当前价格：eosusdt = 9.35，之前价格9.35
+2018-02-14 21:30:09.101  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.Mins30                  : 当前价格：xrpusdt = 1.0462，之前价格1.0475
+2018-02-14 21:30:09.810  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.Mins30                  : 当前价格：ethusdt = 891.47，之前价格892.12
+2018-02-14 21:30:10.540  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.Mins30                  : 当前价格：btcusdt = 9221.8，之前价格9220.81
+2018-02-14 21:30:11.379  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.Mins30                  : 当前价格：htusdt = 2.5838，之前价格2.5908
+2018-02-14 21:30:12.147  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.35，之前价9.37
+2018-02-14 21:30:12.147  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.214%
+2018-02-14 21:30:12.776  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0462，之前价1.0505
+2018-02-14 21:30:12.776  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.411%
+2018-02-14 21:30:13.461  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 891.47，之前价894.35
+2018-02-14 21:30:13.462  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.323%
+2018-02-14 21:30:14.085  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9220.0，之前价9230.38
+2018-02-14 21:30:14.085  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.113%
+2018-02-14 21:30:14.700  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5837，之前价2.5998
+2018-02-14 21:30:14.700  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.623%
+2018-02-14 21:30:15.385  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.36，之前价9.37
+2018-02-14 21:30:15.386  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.107%
+2018-02-14 21:30:16.044  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0464，之前价1.0505
+2018-02-14 21:30:16.045  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.392%
+2018-02-14 21:30:16.642  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 891.47，之前价894.35
+2018-02-14 21:30:16.644  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.323%
+2018-02-14 21:30:17.342  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9220.0，之前价9230.38
+2018-02-14 21:30:17.342  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.113%
+2018-02-14 21:30:17.888  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5837，之前价2.5998
+2018-02-14 21:30:17.889  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.623%
+2018-02-14 21:30:18.576  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.36，之前价9.37
+2018-02-14 21:30:18.576  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.107%
+2018-02-14 21:30:19.183  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0464，之前价1.0505
+2018-02-14 21:30:19.183  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.392%
+2018-02-14 21:30:19.781  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 891.47，之前价894.35
+2018-02-14 21:30:19.781  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.323%
+2018-02-14 21:30:20.443  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9220.0，之前价9230.38
+2018-02-14 21:30:20.443  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.113%
+2018-02-14 21:30:21.053  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5837，之前价2.5998
+2018-02-14 21:30:21.053  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.623%
+2018-02-14 21:30:23.362  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.35，之前价9.37
+2018-02-14 21:30:23.363  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.214%
+2018-02-14 21:30:23.882  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0464，之前价1.0505
+2018-02-14 21:30:23.882  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.392%
+2018-02-14 21:30:24.435  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 891.01，之前价894.35
+2018-02-14 21:30:24.435  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.375%
+2018-02-14 21:30:25.020  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9220.0，之前价9230.38
+2018-02-14 21:30:25.021  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.113%
+2018-02-14 21:30:25.648  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.58，之前价2.5998
+2018-02-14 21:30:25.648  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.767%
+2018-02-14 21:30:28.295  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.35，之前价9.37
+2018-02-14 21:30:28.295  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.214%
+2018-02-14 21:30:28.954  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0467，之前价1.0505
+2018-02-14 21:30:28.954  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.363%
+2018-02-14 21:30:29.633  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 892.65，之前价894.35
+2018-02-14 21:30:29.634  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.19%
+2018-02-14 21:30:30.248  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9220.0，之前价9230.38
+2018-02-14 21:30:30.248  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.113%
+2018-02-14 21:30:30.859  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.58，之前价2.5998
+2018-02-14 21:30:30.859  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.767%
+2018-02-14 21:30:33.542  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.33，之前价9.37
+2018-02-14 21:30:33.542  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.429%
+2018-02-14 21:30:34.143  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0465，之前价1.0505
+2018-02-14 21:30:34.144  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.382%
+2018-02-14 21:30:34.775  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 892.48，之前价894.35
+2018-02-14 21:30:34.776  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.21%
+2018-02-14 21:30:35.380  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9219.0，之前价9230.38
+2018-02-14 21:30:35.380  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.123%
+2018-02-14 21:30:35.991  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.58，之前价2.5998
+2018-02-14 21:30:35.992  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.767%
+2018-02-14 21:30:38.314  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.33，之前价9.37
+2018-02-14 21:30:38.315  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.429%
+2018-02-14 21:30:38.909  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0464，之前价1.0505
+2018-02-14 21:30:38.909  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.392%
+2018-02-14 21:30:39.561  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 892.49，之前价894.35
+2018-02-14 21:30:39.562  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.208%
+2018-02-14 21:30:40.134  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9220.0，之前价9230.38
+2018-02-14 21:30:40.135  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.113%
+2018-02-14 21:30:40.807  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5774，之前价2.5998
+2018-02-14 21:30:40.807  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.869%
+2018-02-14 21:30:43.326  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.33，之前价9.37
+2018-02-14 21:30:43.326  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.429%
+2018-02-14 21:30:43.982  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0464，之前价1.0505
+2018-02-14 21:30:43.982  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.392%
+2018-02-14 21:30:44.617  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 892.35，之前价894.35
+2018-02-14 21:30:44.617  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.224%
+2018-02-14 21:30:45.186  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9220.0，之前价9230.38
+2018-02-14 21:30:45.187  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.113%
+2018-02-14 21:30:45.753  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5772，之前价2.5998
+2018-02-14 21:30:45.753  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.877%
+2018-02-14 21:30:48.497  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.33，之前价9.37
+2018-02-14 21:30:48.497  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.429%
+2018-02-14 21:30:49.071  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0462，之前价1.0505
+2018-02-14 21:30:49.073  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.411%
+2018-02-14 21:30:49.749  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 891.88，之前价894.35
+2018-02-14 21:30:49.749  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.277%
+2018-02-14 21:30:50.350  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9220.99，之前价9230.38
+2018-02-14 21:30:50.351  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.102%
+2018-02-14 21:30:50.582  INFO 16968 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-14 21:30:50.582  INFO 16968 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-14 21:30:50.621  INFO 16968 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 39 ms
+2018-02-14 21:30:50.918  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5774，之前价2.5998
+2018-02-14 21:30:50.918  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.869%
+2018-02-14 21:30:53.385  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.35，之前价9.37
+2018-02-14 21:30:53.385  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.214%
+2018-02-14 21:30:54.025  INFO 16968 --- [http-nio-8081-exec-7] com.cn.huobi.email.EmailSend             : 当前价格：eosusdt = 9.35，之前价格9.37
+2018-02-14 21:30:54.045  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0464，之前价1.0505
+2018-02-14 21:30:54.045  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.392%
+2018-02-14 21:30:54.590  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 891.87，之前价894.35
+2018-02-14 21:30:54.591  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.278%
+2018-02-14 21:30:55.157  INFO 16968 --- [http-nio-8081-exec-7] com.cn.huobi.email.EmailSend             : 邮件发送成功2018-02-14 09:30:55
+2018-02-14 21:30:55.170  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9220.99，之前价9230.38
+2018-02-14 21:30:55.170  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.102%
+2018-02-14 21:30:55.853  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5774，之前价2.5998
+2018-02-14 21:30:55.853  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.869%
+2018-02-14 21:30:58.535  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.35，之前价9.37
+2018-02-14 21:30:58.535  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.214%
+2018-02-14 21:30:59.111  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0462，之前价1.0505
+2018-02-14 21:30:59.112  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.411%
+2018-02-14 21:30:59.660  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 891.9，之前价894.35
+2018-02-14 21:30:59.660  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.275%
+2018-02-14 21:31:00.216  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9220.0，之前价9230.38
+2018-02-14 21:31:00.216  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.113%
+2018-02-14 21:31:00.797  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5774，之前价2.5998
+2018-02-14 21:31:00.797  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.869%
+2018-02-14 21:31:03.406  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.35，之前价9.37
+2018-02-14 21:31:03.406  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.214%
+2018-02-14 21:31:04.033  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0461，之前价1.0505
+2018-02-14 21:31:04.034  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.421%
+2018-02-14 21:31:04.798  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 892.62，之前价894.35
+2018-02-14 21:31:04.798  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.194%
+2018-02-14 21:31:05.475  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9220.0，之前价9230.38
+2018-02-14 21:31:05.475  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.113%
+2018-02-14 21:31:06.070  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.5771，之前价2.5998
+2018-02-14 21:31:06.070  INFO 16968 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.881%
+2018-02-14 21:31:48.641  INFO 18836 --- [main] com.cn.huobi.email.EmailTest             : Starting EmailTest on DESKTOP-24UAFGQ with PID 18836 (started by liaoliping in D:\workspace\huobi)
+2018-02-14 21:31:48.654  INFO 18836 --- [main] com.cn.huobi.email.EmailTest             : The following profiles are active: qq
+2018-02-14 21:31:48.891  INFO 18836 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@5e7cd6cc: startup date [Wed Feb 14 21:31:48 CST 2018]; root of context hierarchy
+2018-02-14 21:31:50.491  INFO 18836 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-14 21:31:52.472  INFO 18836 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@5e7cd6cc: startup date [Wed Feb 14 21:31:48 CST 2018]; root of context hierarchy
+2018-02-14 21:31:52.554  INFO 18836 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/config]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.index(org.springframework.ui.ModelMap)
+2018-02-14 21:31:52.556  INFO 18836 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/updateCurrency]}" onto public void com.cn.huobi.config.controller.ConfigController.updateCurrency(javax.servlet.http.HttpServletRequest)
+2018-02-14 21:31:52.557  INFO 18836 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/currency]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.getCurrencyList()
+2018-02-14 21:31:52.557  INFO 18836 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/removeUser]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.removeUser(javax.servlet.http.HttpServletRequest)
+2018-02-14 21:31:52.558  INFO 18836 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user]}" onto public java.util.List<java.lang.String> com.cn.huobi.config.controller.ConfigController.getUser()
+2018-02-14 21:31:52.559  INFO 18836 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/testEmail]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.testEmail(javax.servlet.http.HttpServletRequest)
+2018-02-14 21:31:52.560  INFO 18836 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addUser]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.addUser(javax.servlet.http.HttpServletRequest)
+2018-02-14 21:31:52.563  INFO 18836 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-14 21:31:52.566  INFO 18836 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-14 21:31:52.589  INFO 18836 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/hello] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2018-02-14 21:31:52.612  INFO 18836 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-14 21:31:52.613  INFO 18836 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-14 21:31:52.681  INFO 18836 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-14 21:31:53.069  INFO 18836 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-02-14 21:31:53.234  INFO 18836 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-02-14 21:31:53.250  INFO 18836 --- [main] com.cn.huobi.email.EmailTest             : Started EmailTest in 5.208 seconds (JVM running for 7.975)
+2018-02-14 21:31:53.340  INFO 18836 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.cn.huobi.HuobiApplicationTests], using SpringBootContextLoader
+2018-02-14 21:31:53.342  INFO 18836 --- [main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.cn.huobi.HuobiApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2018-02-14 21:31:53.342  INFO 18836 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.cn.huobi.HuobiApplicationTests]: HuobiApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2018-02-14 21:31:53.356  INFO 18836 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.cn.huobi.HuobiApplication for test class com.cn.huobi.HuobiApplicationTests
+2018-02-14 21:31:53.368  INFO 18836 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-02-14 21:31:53.376  INFO 18836 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5bc7e78e, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1a4d1ab7, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@546e61d5, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4674d90, org.springframework.test.context.transaction.TransactionalTestExecutionListener@60783105, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1292071f, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@35d5ac51, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@b606cb6, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2a3194c6, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2819c460, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@30364216, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@38bb9d7a]
+2018-02-14 21:31:53.494  INFO 18836 --- [main] com.cn.huobi.HuobiApplicationTests       : Starting HuobiApplicationTests on DESKTOP-24UAFGQ with PID 18836 (started by liaoliping in D:\workspace\huobi)
+2018-02-14 21:31:53.494  INFO 18836 --- [main] com.cn.huobi.HuobiApplicationTests       : No active profile set, falling back to default profiles: default
+2018-02-14 21:31:53.501  INFO 18836 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@12fcc71f: startup date [Wed Feb 14 21:31:53 CST 2018]; root of context hierarchy
+2018-02-14 21:31:54.023  INFO 18836 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-14 21:31:54.699  INFO 18836 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@12fcc71f: startup date [Wed Feb 14 21:31:53 CST 2018]; root of context hierarchy
+2018-02-14 21:31:54.730  INFO 18836 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/config]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.index(org.springframework.ui.ModelMap)
+2018-02-14 21:31:54.730  INFO 18836 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/updateCurrency]}" onto public void com.cn.huobi.config.controller.ConfigController.updateCurrency(javax.servlet.http.HttpServletRequest)
+2018-02-14 21:31:54.731  INFO 18836 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/currency]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.getCurrencyList()
+2018-02-14 21:31:54.731  INFO 18836 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/removeUser]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.removeUser(javax.servlet.http.HttpServletRequest)
+2018-02-14 21:31:54.732  INFO 18836 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user]}" onto public java.util.List<java.lang.String> com.cn.huobi.config.controller.ConfigController.getUser()
+2018-02-14 21:31:54.734  INFO 18836 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/testEmail]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.testEmail(javax.servlet.http.HttpServletRequest)
+2018-02-14 21:31:54.735  INFO 18836 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addUser]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.addUser(javax.servlet.http.HttpServletRequest)
+2018-02-14 21:31:54.737  INFO 18836 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-14 21:31:54.738  INFO 18836 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-14 21:31:54.752  INFO 18836 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/hello] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2018-02-14 21:31:54.764  INFO 18836 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-14 21:31:54.764  INFO 18836 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-14 21:31:54.801  INFO 18836 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-14 21:31:54.915  INFO 18836 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-02-14 21:31:55.015  INFO 18836 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-02-14 21:31:55.018  INFO 18836 --- [main] com.cn.huobi.HuobiApplicationTests       : Started HuobiApplicationTests in 1.603 seconds (JVM running for 9.743)
+2018-02-14 21:31:55.028  INFO 18836 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.cn.huobi.redis.RedisListTest], using SpringBootContextLoader
+2018-02-14 21:31:55.029  INFO 18836 --- [main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.cn.huobi.redis.RedisListTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2018-02-14 21:31:55.030  INFO 18836 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.cn.huobi.redis.RedisListTest]: RedisListTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2018-02-14 21:31:55.038  INFO 18836 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.cn.huobi.HuobiApplication for test class com.cn.huobi.redis.RedisListTest
+2018-02-14 21:31:55.045  INFO 18836 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-02-14 21:31:55.056  INFO 18836 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5e8507f1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4bcaa195, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@d08edc5, org.springframework.test.context.support.DirtiesContextTestExecutionListener@49fa1d74, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3f362135, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@21eee94f, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6bc24e72, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@724aefc3, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7cfb4736, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2a097d77, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@53c1179a, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@7650ded6]
+2018-02-14 21:31:55.335  INFO 18836 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.cn.huobi.redis.RedisTest], using SpringBootContextLoader
+2018-02-14 21:31:55.336  INFO 18836 --- [main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.cn.huobi.redis.RedisTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2018-02-14 21:31:55.337  INFO 18836 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.cn.huobi.redis.RedisTest]: RedisTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2018-02-14 21:31:55.344  INFO 18836 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.cn.huobi.HuobiApplication for test class com.cn.huobi.redis.RedisTest
+2018-02-14 21:31:55.349  INFO 18836 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-02-14 21:31:55.355  INFO 18836 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3ba0ae41, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@76fe6cdc, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@2ffb3aec, org.springframework.test.context.support.DirtiesContextTestExecutionListener@786ff1cb, org.springframework.test.context.transaction.TransactionalTestExecutionListener@46039a21, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@431e86b1, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@35c4e864, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@32a2a6be, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@682af059, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5f36c8e3, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4da39ca9, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6a9344f5]
+2018-02-14 21:31:55.405  INFO 18836 --- [Thread-3] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@5e7cd6cc: startup date [Wed Feb 14 21:31:48 CST 2018]; root of context hierarchy
+2018-02-14 21:31:55.410  INFO 18836 --- [Thread-5] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@12fcc71f: startup date [Wed Feb 14 21:31:53 CST 2018]; root of context hierarchy
+2018-02-14 22:12:07.454  INFO 8548 --- [restartedMain] com.cn.huobi.HuobiApplication            : Starting HuobiApplication on DESKTOP-24UAFGQ with PID 8548 (D:\workspace\huobi\target\classes started by liaoliping in D:\workspace\huobi)
+2018-02-14 22:12:07.454  INFO 8548 --- [restartedMain] com.cn.huobi.HuobiApplication            : No active profile set, falling back to default profiles: default
+2018-02-14 22:12:07.547  INFO 8548 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6ae3b813: startup date [Wed Feb 14 22:12:07 CST 2018]; root of context hierarchy
+2018-02-14 22:12:09.283  INFO 8548 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-14 22:12:10.456  INFO 8548 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8081 (http)
+2018-02-14 22:12:10.472  INFO 8548 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-02-14 22:12:10.472  INFO 8548 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-02-14 22:12:10.487  WARN 8548 --- [localhost-startStop-1] o.apache.catalina.core.StandardContext   : Failed to create work directory [H:\springboot-tomcat-tmp\work\Tomcat\localhost\ROOT] for context []
+2018-02-14 22:12:10.597  INFO 8548 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-02-14 22:12:10.597  INFO 8548 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3050 ms
+2018-02-14 22:12:10.800  INFO 8548 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-14 22:12:10.800  INFO 8548 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-14 22:12:10.800  INFO 8548 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-14 22:12:10.800  INFO 8548 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-14 22:12:10.800  INFO 8548 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-14 22:12:11.513  INFO 8548 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6ae3b813: startup date [Wed Feb 14 22:12:07 CST 2018]; root of context hierarchy
+2018-02-14 22:12:11.576  INFO 8548 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/config]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.index(org.springframework.ui.ModelMap)
+2018-02-14 22:12:11.576  INFO 8548 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addUser]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.addUser(javax.servlet.http.HttpServletRequest)
+2018-02-14 22:12:11.576  INFO 8548 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user]}" onto public java.util.List<java.lang.String> com.cn.huobi.config.controller.ConfigController.getUser()
+2018-02-14 22:12:11.576  INFO 8548 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/currency]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.getCurrencyList()
+2018-02-14 22:12:11.576  INFO 8548 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/updateCurrency]}" onto public void com.cn.huobi.config.controller.ConfigController.updateCurrency(javax.servlet.http.HttpServletRequest)
+2018-02-14 22:12:11.576  INFO 8548 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/removeUser]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.removeUser(javax.servlet.http.HttpServletRequest)
+2018-02-14 22:12:11.576  INFO 8548 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/testEmail]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.testEmail(javax.servlet.http.HttpServletRequest)
+2018-02-14 22:12:11.591  INFO 8548 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-14 22:12:11.591  INFO 8548 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-14 22:12:11.622  INFO 8548 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/hello] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2018-02-14 22:12:11.638  INFO 8548 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-14 22:12:11.638  INFO 8548 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-14 22:12:11.685  INFO 8548 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-14 22:12:12.060  INFO 8548 --- [restartedMain] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-02-14 22:12:12.372  INFO 8548 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-02-14 22:12:12.451  INFO 8548 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-02-14 22:12:12.466  INFO 8548 --- [restartedMain] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-02-14 22:12:12.544  INFO 8548 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8081 (http)
+2018-02-14 22:12:12.560  INFO 8548 --- [restartedMain] com.cn.huobi.HuobiApplication            : Started HuobiApplication in 5.685 seconds (JVM running for 8.084)
+2018-02-14 22:12:14.004  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.Mins30                  : 当前价格：eosusdt = 9.27，之前价格9.28
+2018-02-14 22:12:14.582  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.Mins30                  : 当前价格：xrpusdt = 1.0337，之前价格1.0334
+2018-02-14 22:12:15.191  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.Mins30                  : 当前价格：ethusdt = 882.0，之前价格883.5
+2018-02-14 22:12:15.848  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.Mins30                  : 当前价格：btcusdt = 9170.0，之前价格9219.4
+2018-02-14 22:12:16.457  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.Mins30                  : 当前价格：htusdt = 2.4877，之前价格2.465
+2018-02-14 22:12:17.098  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.27，之前价9.28
+2018-02-14 22:12:17.098  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.108%
+2018-02-14 22:12:17.707  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0337，之前价1.0334
+2018-02-14 22:12:17.707  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.029%
+2018-02-14 22:12:18.238  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 882.0，之前价883.5
+2018-02-14 22:12:18.238  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.17%
+2018-02-14 22:12:18.754  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9170.0，之前价9214.11
+2018-02-14 22:12:18.754  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.481%
+2018-02-14 22:12:19.379  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.4885，之前价2.5297
+2018-02-14 22:12:19.379  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-1.656%
+2018-02-14 22:12:20.067  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.27，之前价9.28
+2018-02-14 22:12:20.067  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.108%
+2018-02-14 22:12:20.645  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0375，之前价1.0334
+2018-02-14 22:12:20.645  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.395%
+2018-02-14 22:12:21.208  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 882.0，之前价883.5
+2018-02-14 22:12:21.208  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.17%
+2018-02-14 22:12:21.786  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9174.32，之前价9214.11
+2018-02-14 22:12:21.786  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.434%
+2018-02-14 22:12:22.364  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.4863，之前价2.4885
+2018-02-14 22:12:22.364  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.088%
+2018-02-14 22:12:23.190  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.27，之前价9.28
+2018-02-14 22:12:23.190  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.108%
+2018-02-14 22:12:23.769  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0337，之前价1.0334
+2018-02-14 22:12:23.769  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.029%
+2018-02-14 22:12:24.300  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 880.29，之前价883.5
+2018-02-14 22:12:24.300  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.365%
+2018-02-14 22:12:24.863  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9170.0，之前价9214.11
+2018-02-14 22:12:24.863  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.481%
+2018-02-14 22:12:25.456  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.4804，之前价2.4885
+2018-02-14 22:12:25.456  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.327%
+2018-02-14 22:12:28.507  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.27，之前价9.28
+2018-02-14 22:12:28.507  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.108%
+2018-02-14 22:12:29.053  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0374，之前价1.0334
+2018-02-14 22:12:29.053  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.386%
+2018-02-14 22:12:29.615  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 881.12，之前价883.5
+2018-02-14 22:12:29.615  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.27%
+2018-02-14 22:12:30.194  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9169.73，之前价9214.11
+2018-02-14 22:12:30.194  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.484%
+2018-02-14 22:12:30.756  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.4892，之前价2.4885
+2018-02-14 22:12:30.756  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 上涨：0.028%
+2018-02-14 22:12:33.068  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.27，之前价9.28
+2018-02-14 22:12:33.084  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.108%
+2018-02-14 22:12:33.678  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0337，之前价1.0334
+2018-02-14 22:12:33.678  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.029%
+2018-02-14 22:12:34.256  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 880.32，之前价883.5
+2018-02-14 22:12:34.256  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.361%
+2018-02-14 22:12:34.819  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9169.73，之前价9214.11
+2018-02-14 22:12:34.819  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.484%
+2018-02-14 22:12:35.366  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.4891，之前价2.4885
+2018-02-14 22:12:35.366  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 上涨：0.024%
+2018-02-14 22:12:38.038  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.27，之前价9.28
+2018-02-14 22:12:38.038  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.108%
+2018-02-14 22:12:38.569  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0337，之前价1.0334
+2018-02-14 22:12:38.569  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.029%
+2018-02-14 22:12:39.163  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 880.34，之前价883.5
+2018-02-14 22:12:39.163  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.359%
+2018-02-14 22:12:39.694  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9166.6，之前价9214.11
+2018-02-14 22:12:39.694  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.518%
+2018-02-14 22:12:40.257  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.4922，之前价2.4885
+2018-02-14 22:12:40.257  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 上涨：0.148%
+2018-02-14 22:12:43.059  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.27，之前价9.28
+2018-02-14 22:12:43.059  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.108%
+2018-02-14 22:12:43.606  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0338，之前价1.0334
+2018-02-14 22:12:43.606  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.039%
+2018-02-14 22:12:44.153  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 880.44，之前价883.5
+2018-02-14 22:12:44.153  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.348%
+2018-02-14 22:12:44.715  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9165.01，之前价9214.11
+2018-02-14 22:12:44.715  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.536%
+2018-02-14 22:12:45.236  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.4922，之前价2.4885
+2018-02-14 22:12:45.236  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 上涨：0.148%
+2018-02-14 22:12:48.073  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.27，之前价9.28
+2018-02-14 22:12:48.073  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.108%
+2018-02-14 22:12:48.623  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0337，之前价1.0334
+2018-02-14 22:12:48.623  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.029%
+2018-02-14 22:12:49.138  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 880.44，之前价883.5
+2018-02-14 22:12:49.138  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.348%
+2018-02-14 22:12:49.669  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9165.01，之前价9214.11
+2018-02-14 22:12:49.669  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.536%
+2018-02-14 22:12:50.205  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.4898，之前价2.4885
+2018-02-14 22:12:50.205  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 上涨：0.052%
+2018-02-14 22:12:53.040  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.27，之前价9.28
+2018-02-14 22:12:53.041  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.108%
+2018-02-14 22:12:53.584  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0337，之前价1.0334
+2018-02-14 22:12:53.584  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.029%
+2018-02-14 22:12:54.161  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 880.51，之前价883.5
+2018-02-14 22:12:54.177  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.34%
+2018-02-14 22:12:54.724  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9170.0，之前价9214.11
+2018-02-14 22:12:54.724  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.481%
+2018-02-14 22:12:55.231  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.487，之前价2.4885
+2018-02-14 22:12:55.231  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.06%
+2018-02-14 22:12:58.089  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.26，之前价9.28
+2018-02-14 22:12:58.089  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.216%
+2018-02-14 22:12:58.664  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0337，之前价1.0334
+2018-02-14 22:12:58.664  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.029%
+2018-02-14 22:12:59.227  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 880.68，之前价883.5
+2018-02-14 22:12:59.227  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.32%
+2018-02-14 22:12:59.787  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9170.29，之前价9214.11
+2018-02-14 22:12:59.787  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.478%
+2018-02-14 22:13:00.356  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.4872，之前价2.4885
+2018-02-14 22:13:00.356  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.052%
+2018-02-14 22:13:00.531  INFO 8548 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-14 22:13:00.531  INFO 8548 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-14 22:13:00.580  INFO 8548 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 49 ms
+2018-02-14 22:13:03.071  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.26，之前价9.28
+2018-02-14 22:13:03.071  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.216%
+2018-02-14 22:13:03.574  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0334，之前价1.0334
+2018-02-14 22:13:03.574  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：0.0%
+2018-02-14 22:13:04.052  INFO 8548 --- [http-nio-8081-exec-6] com.cn.huobi.email.EmailSend             : 当前价格：eosusdt = 9.26，之前价格9.28
+2018-02-14 22:13:04.083  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 880.68，之前价883.5
+2018-02-14 22:13:04.083  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.32%
+2018-02-14 22:13:04.614  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9172.99，之前价9214.11
+2018-02-14 22:13:04.614  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.448%
+2018-02-14 22:13:05.169  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.4871，之前价2.4885
+2018-02-14 22:13:05.169  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.056%
+2018-02-14 22:13:05.231  INFO 8548 --- [http-nio-8081-exec-6] com.cn.huobi.email.EmailSend             : 邮件发送成功2018-02-14 10:13:05
+2018-02-14 22:13:08.029  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.26，之前价9.28
+2018-02-14 22:13:08.029  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.216%
+2018-02-14 22:13:08.605  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0331，之前价1.0334
+2018-02-14 22:13:08.605  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.029%
+2018-02-14 22:13:09.153  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 880.34，之前价883.5
+2018-02-14 22:13:09.153  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.359%
+2018-02-14 22:13:09.716  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9165.06，之前价9214.11
+2018-02-14 22:13:09.716  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.535%
+2018-02-14 22:13:10.294  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.4871，之前价2.4885
+2018-02-14 22:13:10.294  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.056%
+2018-02-14 22:13:13.101  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.26，之前价9.28
+2018-02-14 22:13:13.101  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.216%
+2018-02-14 22:13:13.601  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0331，之前价1.0334
+2018-02-14 22:13:13.601  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.029%
+2018-02-14 22:13:14.166  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 880.71，之前价883.5
+2018-02-14 22:13:14.167  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.317%
+2018-02-14 22:13:14.719  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9165.08，之前价9214.11
+2018-02-14 22:13:14.719  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.535%
+2018-02-14 22:13:15.248  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.4868，之前价2.4885
+2018-02-14 22:13:15.248  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.068%
+2018-02-14 22:13:18.062  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.25，之前价9.28
+2018-02-14 22:13:18.062  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.324%
+2018-02-14 22:13:18.640  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0336，之前价1.0334
+2018-02-14 22:13:18.640  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.019%
+2018-02-14 22:13:19.185  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 880.69，之前价883.5
+2018-02-14 22:13:19.185  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.319%
+2018-02-14 22:13:19.779  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9165.08，之前价9214.11
+2018-02-14 22:13:19.779  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.535%
+2018-02-14 22:13:20.317  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.4869，之前价2.4885
+2018-02-14 22:13:20.317  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.064%
+2018-02-14 22:13:23.091  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.25，之前价9.28
+2018-02-14 22:13:23.091  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.324%
+2018-02-14 22:13:23.623  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0337，之前价1.0334
+2018-02-14 22:13:23.623  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.029%
+2018-02-14 22:13:24.145  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 880.69，之前价883.5
+2018-02-14 22:13:24.145  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.319%
+2018-02-14 22:13:24.676  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9165.08，之前价9214.11
+2018-02-14 22:13:24.676  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.535%
+2018-02-14 22:13:25.217  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.4871，之前价2.4885
+2018-02-14 22:13:25.217  INFO 8548 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.056%
+2018-02-14 22:13:36.882  INFO 11384 --- [restartedMain] com.cn.huobi.HuobiApplication            : Starting HuobiApplication on DESKTOP-24UAFGQ with PID 11384 (D:\workspace\huobi\target\classes started by liaoliping in D:\workspace\huobi)
+2018-02-14 22:13:36.882  INFO 11384 --- [restartedMain] com.cn.huobi.HuobiApplication            : No active profile set, falling back to default profiles: default
+2018-02-14 22:13:36.960  INFO 11384 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4fd3473: startup date [Wed Feb 14 22:13:36 CST 2018]; root of context hierarchy
+2018-02-14 22:13:39.039  INFO 11384 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-14 22:13:40.445  INFO 11384 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8081 (http)
+2018-02-14 22:13:40.445  INFO 11384 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-02-14 22:13:40.445  INFO 11384 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-02-14 22:13:40.461  WARN 11384 --- [localhost-startStop-1] o.apache.catalina.core.StandardContext   : Failed to create work directory [H:\springboot-tomcat-tmp\work\Tomcat\localhost\ROOT] for context []
+2018-02-14 22:13:40.601  INFO 11384 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-02-14 22:13:40.601  INFO 11384 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3641 ms
+2018-02-14 22:13:40.820  INFO 11384 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-14 22:13:40.820  INFO 11384 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-14 22:13:40.820  INFO 11384 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-14 22:13:40.820  INFO 11384 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-14 22:13:40.820  INFO 11384 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-14 22:13:41.758  INFO 11384 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4fd3473: startup date [Wed Feb 14 22:13:36 CST 2018]; root of context hierarchy
+2018-02-14 22:13:41.820  INFO 11384 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/config]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.index(org.springframework.ui.ModelMap)
+2018-02-14 22:13:41.820  INFO 11384 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addUser]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.addUser(javax.servlet.http.HttpServletRequest)
+2018-02-14 22:13:41.820  INFO 11384 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/updateCurrency]}" onto public void com.cn.huobi.config.controller.ConfigController.updateCurrency(javax.servlet.http.HttpServletRequest)
+2018-02-14 22:13:41.820  INFO 11384 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/currency]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.getCurrencyList()
+2018-02-14 22:13:41.820  INFO 11384 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user]}" onto public java.util.List<java.lang.String> com.cn.huobi.config.controller.ConfigController.getUser()
+2018-02-14 22:13:41.820  INFO 11384 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/testEmail]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.testEmail(javax.servlet.http.HttpServletRequest)
+2018-02-14 22:13:41.820  INFO 11384 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/removeUser]}" onto public java.lang.String com.cn.huobi.config.controller.ConfigController.removeUser(javax.servlet.http.HttpServletRequest)
+2018-02-14 22:13:41.820  INFO 11384 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-14 22:13:41.820  INFO 11384 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-14 22:13:41.836  INFO 11384 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/hello] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2018-02-14 22:13:41.852  INFO 11384 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-14 22:13:41.852  INFO 11384 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-14 22:13:42.055  INFO 11384 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-14 22:13:42.367  INFO 11384 --- [restartedMain] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-02-14 22:13:42.508  INFO 11384 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-02-14 22:13:42.680  INFO 11384 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-02-14 22:13:42.695  INFO 11384 --- [restartedMain] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-02-14 22:13:42.774  INFO 11384 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8081 (http)
+2018-02-14 22:13:42.789  INFO 11384 --- [restartedMain] com.cn.huobi.HuobiApplication            : Started HuobiApplication in 6.36 seconds (JVM running for 8.344)
+2018-02-14 22:13:44.381  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.Mins30                  : 当前价格：eosusdt = 9.25，之前价格9.27
+2018-02-14 22:13:44.990  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.Mins30                  : 当前价格：xrpusdt = 1.0331，之前价格1.0337
+2018-02-14 22:13:45.709  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.Mins30                  : 当前价格：ethusdt = 880.15，之前价格880.44
+2018-02-14 22:13:46.350  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.Mins30                  : 当前价格：btcusdt = 9155.0，之前价格9166.62
+2018-02-14 22:13:47.037  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.Mins30                  : 当前价格：htusdt = 2.487，之前价格2.4922
+2018-02-14 22:13:47.647  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.25，之前价9.28
+2018-02-14 22:13:47.647  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.324%
+2018-02-14 22:13:48.225  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0331，之前价1.0334
+2018-02-14 22:13:48.225  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.029%
+2018-02-14 22:13:48.787  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 880.17，之前价883.5
+2018-02-14 22:13:48.787  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.378%
+2018-02-14 22:13:49.350  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9155.99，之前价9214.11
+2018-02-14 22:13:49.350  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.635%
+2018-02-14 22:13:49.912  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.487，之前价2.4885
+2018-02-14 22:13:49.912  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.06%
+2018-02-14 22:13:50.537  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.25，之前价9.28
+2018-02-14 22:13:50.537  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.324%
+2018-02-14 22:13:51.147  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0331，之前价1.0334
+2018-02-14 22:13:51.147  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.029%
+2018-02-14 22:13:51.725  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 880.17，之前价883.5
+2018-02-14 22:13:51.725  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.378%
+2018-02-14 22:13:52.288  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9155.0，之前价9214.11
+2018-02-14 22:13:52.288  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.646%
+2018-02-14 22:13:52.881  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.487，之前价2.4885
+2018-02-14 22:13:52.881  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.06%
+2018-02-14 22:13:53.507  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.25，之前价9.28
+2018-02-14 22:13:53.507  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.324%
+2018-02-14 22:13:54.069  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0331，之前价1.0334
+2018-02-14 22:13:54.069  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.029%
+2018-02-14 22:13:54.647  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 880.02，之前价883.5
+2018-02-14 22:13:54.647  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.395%
+2018-02-14 22:13:55.194  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9153.02，之前价9214.11
+2018-02-14 22:13:55.194  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.667%
+2018-02-14 22:13:55.788  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.4819，之前价2.4885
+2018-02-14 22:13:55.788  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.266%
+2018-02-14 22:13:58.304  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.25，之前价9.28
+2018-02-14 22:13:58.304  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.324%
+2018-02-14 22:13:58.851  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.033，之前价1.0334
+2018-02-14 22:13:58.851  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.039%
+2018-02-14 22:13:59.413  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 880.93，之前价883.5
+2018-02-14 22:13:59.413  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.292%
+2018-02-14 22:13:59.945  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9153.02，之前价9214.11
+2018-02-14 22:13:59.945  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.667%
+2018-02-14 22:14:00.552  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.4843，之前价2.4885
+2018-02-14 22:14:00.552  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.169%
+2018-02-14 22:14:03.302  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.25，之前价9.28
+2018-02-14 22:14:03.302  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.324%
+2018-02-14 22:14:03.896  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.033，之前价1.0334
+2018-02-14 22:14:03.896  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.039%
+2018-02-14 22:14:04.536  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 880.02，之前价883.5
+2018-02-14 22:14:04.536  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.395%
+2018-02-14 22:14:05.099  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9150.06，之前价9214.11
+2018-02-14 22:14:05.099  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.7%
+2018-02-14 22:14:05.599  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.487，之前价2.4885
+2018-02-14 22:14:05.599  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.06%
+2018-02-14 22:14:08.368  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.25，之前价9.28
+2018-02-14 22:14:08.368  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.324%
+2018-02-14 22:14:08.902  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0335，之前价1.0334
+2018-02-14 22:14:08.918  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.01%
+2018-02-14 22:14:09.512  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 880.03，之前价883.5
+2018-02-14 22:14:09.512  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.394%
+2018-02-14 22:14:10.074  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9150.05，之前价9214.11
+2018-02-14 22:14:10.074  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.7%
+2018-02-14 22:14:10.668  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.487，之前价2.4885
+2018-02-14 22:14:10.668  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.06%
+2018-02-14 22:14:13.340  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.25，之前价9.28
+2018-02-14 22:14:13.340  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.324%
+2018-02-14 22:14:13.864  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0331，之前价1.0334
+2018-02-14 22:14:13.864  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.029%
+2018-02-14 22:14:14.458  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 880.51，之前价883.5
+2018-02-14 22:14:14.458  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.34%
+2018-02-14 22:14:15.005  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9150.0，之前价9214.11
+2018-02-14 22:14:15.005  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.701%
+2018-02-14 22:14:15.571  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.487，之前价2.4885
+2018-02-14 22:14:15.571  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.06%
+2018-02-14 22:14:16.890  INFO 11384 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-14 22:14:16.890  INFO 11384 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-14 22:14:16.921  INFO 11384 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 31 ms
+2018-02-14 22:14:25.825  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.26，之前价9.28
+2018-02-14 22:14:25.825  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.216%
+2018-02-14 22:14:26.388  INFO 11384 --- [http-nio-8081-exec-1] com.cn.huobi.email.EmailSend             : 当前价格：eosusdt = 9.26，之前价格9.28
+2018-02-14 22:14:27.935  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0336，之前价1.0334
+2018-02-14 22:14:27.950  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.019%
+2018-02-14 22:14:30.537  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 880.03，之前价883.5
+2018-02-14 22:14:30.537  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.394%
+2018-02-14 22:14:31.133  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9148.21，之前价9214.11
+2018-02-14 22:14:31.133  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.72%
+2018-02-14 22:14:31.680  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.4847，之前价2.4885
+2018-02-14 22:14:31.680  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.153%
+2018-02-14 22:14:32.239  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.25，之前价9.28
+2018-02-14 22:14:32.239  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.324%
+2018-02-14 22:14:34.660  INFO 11384 --- [http-nio-8081-exec-1] com.cn.huobi.email.EmailSend             : 邮件发送成功2018-02-14 10:14:34
+2018-02-14 22:14:39.263  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0331，之前价1.0334
+2018-02-14 22:14:39.263  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.029%
+2018-02-14 22:14:46.812  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 879.85，之前价883.5
+2018-02-14 22:14:46.812  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.415%
+2018-02-14 22:14:47.406  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9149.98，之前价9214.11
+2018-02-14 22:14:47.407  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.701%
+2018-02-14 22:14:47.902  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.48，之前价2.4885
+2018-02-14 22:14:47.902  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.343%
+2018-02-14 22:14:48.530  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.25，之前价9.28
+2018-02-14 22:14:48.530  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.324%
+2018-02-14 22:14:49.106  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.033，之前价1.0334
+2018-02-14 22:14:49.106  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.039%
+2018-02-14 22:14:49.676  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 879.85，之前价883.5
+2018-02-14 22:14:49.676  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.415%
+2018-02-14 22:14:50.226  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9149.98，之前价9214.11
+2018-02-14 22:14:50.226  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.701%
+2018-02-14 22:14:50.784  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.48，之前价2.4885
+2018-02-14 22:14:50.784  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.343%
+2018-02-14 22:14:51.319  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.25，之前价9.28
+2018-02-14 22:14:51.319  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.324%
+2018-02-14 22:14:51.895  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.033，之前价1.0334
+2018-02-14 22:14:51.895  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.039%
+2018-02-14 22:14:52.449  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 879.11，之前价883.5
+2018-02-14 22:14:52.450  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.499%
+2018-02-14 22:14:53.105  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9149.98，之前价9214.11
+2018-02-14 22:14:53.105  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.701%
+2018-02-14 22:14:53.674  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.4827，之前价2.4885
+2018-02-14 22:14:53.675  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.234%
+2018-02-14 22:14:54.264  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.25，之前价9.28
+2018-02-14 22:14:54.264  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.324%
+2018-02-14 22:14:54.811  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0332，之前价1.0334
+2018-02-14 22:14:54.811  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.019%
+2018-02-14 22:14:55.419  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 879.12，之前价883.5
+2018-02-14 22:14:55.419  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.498%
+2018-02-14 22:14:55.989  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9143.65，之前价9214.11
+2018-02-14 22:14:55.989  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.771%
+2018-02-14 22:14:56.560  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.48，之前价2.4885
+2018-02-14 22:14:56.560  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.343%
+2018-02-14 22:14:57.188  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.25，之前价9.28
+2018-02-14 22:14:57.188  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.324%
+2018-02-14 22:14:57.746  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0331，之前价1.0334
+2018-02-14 22:14:57.746  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.029%
+2018-02-14 22:14:58.310  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 879.85，之前价883.5
+2018-02-14 22:14:58.310  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.415%
+2018-02-14 22:14:58.883  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9150.0，之前价9214.11
+2018-02-14 22:14:58.884  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.701%
+2018-02-14 22:14:59.420  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.4794，之前价2.4885
+2018-02-14 22:14:59.420  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.367%
+2018-02-14 22:14:59.989  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.25，之前价9.28
+2018-02-14 22:14:59.989  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.324%
+2018-02-14 22:15:00.558  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.033，之前价1.0334
+2018-02-14 22:15:00.558  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 下跌：-0.039%
+2018-02-14 22:15:01.138  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 879.12，之前价883.5
+2018-02-14 22:15:01.138  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.498%
+2018-02-14 22:15:01.692  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9150.0，之前价9214.11
+2018-02-14 22:15:01.692  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.701%
+2018-02-14 22:15:02.256  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.4751，之前价2.4885
+2018-02-14 22:15:02.256  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.541%
+2018-02-14 22:15:02.887  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.25，之前价9.28
+2018-02-14 22:15:02.887  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.324%
+2018-02-14 22:15:03.444  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0335，之前价1.0334
+2018-02-14 22:15:03.444  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.01%
+2018-02-14 22:15:04.019  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：ethusdt = 879.65，之前价883.5
+2018-02-14 22:15:04.019  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：ethusdt = 下跌：-0.438%
+2018-02-14 22:15:04.570  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：btcusdt = 9150.0，之前价9214.11
+2018-02-14 22:15:04.570  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：btcusdt = 下跌：-0.701%
+2018-02-14 22:15:05.139  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：htusdt = 2.4751，之前价2.4885
+2018-02-14 22:15:05.139  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：htusdt = 下跌：-0.541%
+2018-02-14 22:15:05.706  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：eosusdt = 9.25，之前价9.28
+2018-02-14 22:15:05.706  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：eosusdt = 下跌：-0.324%
+2018-02-14 22:15:06.239  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前价：xrpusdt = 1.0335，之前价1.0334
+2018-02-14 22:15:06.239  INFO 11384 --- [pool-1-thread-1] com.cn.huobi.job.SchedledConfiguration   : 当前趋势：xrpusdt = 上涨：0.01%

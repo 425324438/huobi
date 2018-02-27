@@ -34,13 +34,13 @@ import java.util.Map;
 public class EmailSend {
     private static final Logger log = LoggerFactory.getLogger(EmailSend.class);
     @Resource
-    public  JavaMailSender mailSender;    @Autowired
+    public  JavaMailSender mailSender;
+    @Autowired
     private RedisStrService redisStrService;
     @Value("${spring.mail.username}")
     public  String Sender;
     @Autowired
     private StringRedisTemplate template;
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     @Value("${huobi.market}")
     private String market ;
     @Value("${huobi.trade}")
