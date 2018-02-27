@@ -23,5 +23,3 @@ dist/
 nbdist/
 .nb-gradle/
 
-### 不上传资源配置文件  ###
-resources/application.properties
